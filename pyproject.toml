@@ -1,12 +1,21 @@
 [tool.poetry]
-name = "cw-6-django-part-1"
+name = "dz-21-1-django-cbv"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
+packages = [{include = "dz_19.2"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
+django = "^5.1"
+black = "^24.8.0"
+ipython = "^8.26.0"
+django-stubs = "^5.0.4"
+psycopg2 = "^2.9.9"
+pillow = "^10.4.0"
+pytils = "^0.4.1"
+flake8 = "^7.1.1"
 
 
 [build-system]
