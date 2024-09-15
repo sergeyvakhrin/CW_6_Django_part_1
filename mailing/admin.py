@@ -19,13 +19,13 @@ class MailingAdmin(admin.ModelAdmin):
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
-    list_display = ('id', 'email', 'name', 'comment', 'mailings',)
+    list_display = ('id', 'email', 'name', 'comment',)
     list_filter = ('name', 'email',)
     search_fields = ('name', 'email', 'comment',)
 
 
 @admin.register(Attempt)
 class AttemptAdmin(admin.ModelAdmin):
-    list_display = ('id', 'date_first_attempt', 'date_last_attempt', 'status', 'server_response', 'mailing_id',)
+    list_display = ('id', 'date_first_attempt', 'date_last_attempt', 'status', 'server_response',)
     list_filter = ('status',)
     search_fields = ('date_last_attempt', 'server_response',)

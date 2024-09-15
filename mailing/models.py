@@ -21,6 +21,22 @@ class Message(models.Model):
         ordering = ("title",)
 
 
+class Client(models.Model):
+    """ Класс для модели Клиент """
+    email = models.CharField(max_length=100, verbose_name="Почта для рассылки", help_text='Заполните почту для рассылки')
+    name = models.CharField(max_length=100, verbose_name="ФИО", help_text="Введите имя клиента", **NULLABLE)
+    comment = models.TextField(verbose_name="Комментарий", help_text="Добавьте комментарий", **NULLABLE)
+
+    def __str__(self):
+        """ Строковое представление данных """
+        return f"{self.name} {self.email}"
+
+    class Meta:
+        verbose_name = "Клиент"
+        verbose_name_plural = "Клиенты"
+        ordering = ("name",)
+
+
 class Mailing(models.Model):
     """ Класс для модели Рассылки """
     date_of_first_dispatch = models.DateTimeField(verbose_name="Дата первой отправки", **NULLABLE)
@@ -30,6 +46,7 @@ class Mailing(models.Model):
     created_at = models.DateTimeField(verbose_name="Дата создания рассылки", auto_now_add=True)
     update_at = models.DateTimeField(verbose_name="Дата изменения рассылки", auto_now=True)
     message_id = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Сообщение", help_text="Выберите сообщение", related_name='Mailing')
+    client_list = models.ManyToManyField(Client, verbose_name='Клиенты', help_text='Выберите клиентов для рассылки', related_name='Client')
 
     def __str__(self):
         """ Строковое представление данных """
@@ -40,22 +57,6 @@ class Mailing(models.Model):
         verbose_name_plural = "Рассылки"
         ordering = ("status",)
 
-
-class Client(models.Model):
-    """ Класс для модели Клиент """
-    email = models.CharField(max_length=100, verbose_name="Почта для рассылки", help_text='Заполните почту для рассылки')
-    name = models.CharField(max_length=100, verbose_name="ФИО", help_text="Введите имя клиента", **NULLABLE)
-    comment = models.TextField(verbose_name="Комментарий", help_text="Добавьте комментарий", **NULLABLE)
-    mailings = models.ManyToManyField(Mailing, related_name='Client')
-
-    def __str__(self):
-        """ Строковое представление данных """
-        return f"{self.name} {self.email}"
-
-    class Meta:
-        verbose_name = "Клиент"
-        verbose_name_plural = "Клиенты"
-        ordering = ("name",)
 
 class Attempt(models.Model):
     """ Класс для модели Попытки """

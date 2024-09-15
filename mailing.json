@@ -1,0 +1,197 @@
+[
+  {
+    "model": "mailing.message",
+    "pk": 1,
+    "fields": {
+      "title": "Первая Рассылка",
+      "message": "Это самая первая рассылка",
+      "image": "",
+      "created_at": "2024-09-15T09:55:25.948Z",
+      "update_at": "2024-09-15T09:55:25.948Z"
+    }
+  },
+  {
+    "model": "mailing.message",
+    "pk": 2,
+    "fields": {
+      "title": "Вторая рассылка",
+      "message": "Это вторая рассылка",
+      "image": "",
+      "created_at": "2024-09-15T09:55:50.769Z",
+      "update_at": "2024-09-15T09:55:50.770Z"
+    }
+  },
+  {
+    "model": "mailing.message",
+    "pk": 3,
+    "fields": {
+      "title": "Рассылка",
+      "message": "Это третья рассылка без заголовка",
+      "image": "",
+      "created_at": "2024-09-15T09:56:17.831Z",
+      "update_at": "2024-09-15T09:56:17.831Z"
+    }
+  },
+  {
+    "model": "mailing.message",
+    "pk": 4,
+    "fields": {
+      "title": "Четвертая Рассылка",
+      "message": "Четвертая Рассылка",
+      "image": "",
+      "created_at": "2024-09-15T10:29:51.618Z",
+      "update_at": "2024-09-15T10:29:51.618Z"
+    }
+  },
+  {
+    "model": "mailing.client",
+    "pk": 1,
+    "fields": {
+      "email": "parlamentsv@mail.ru",
+      "name": "Сергей",
+      "comment": "тестовая рассылка"
+    }
+  },
+  {
+    "model": "mailing.client",
+    "pk": 2,
+    "fields": {
+      "email": "vakhrin.sv@mail.ru",
+      "name": "Сергей vakhrin.sv",
+      "comment": "тестовая рассылка на vakhrin.sv"
+    }
+  },
+  {
+    "model": "mailing.client",
+    "pk": 3,
+    "fields": {
+      "email": "dlaotpravkipisem@mail.ru",
+      "name": "Сергей dlaotpravkipisem@mail.ru",
+      "comment": "Тестовая рассылка на dlaotpravkipisem@mail.ru"
+    }
+  },
+  {
+    "model": "mailing.client",
+    "pk": 4,
+    "fields": {
+      "email": "parlamentsv@mail.ru",
+      "name": "Сергей",
+      "comment": "дубль почты для теста"
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 1,
+    "fields": {
+      "date_of_first_dispatch": null,
+      "periodicity": null,
+      "status": "C",
+      "datetime_to_start": null,
+      "created_at": "2024-09-15T10:13:11.764Z",
+      "update_at": "2024-09-15T10:13:11.764Z",
+      "message_id": 1,
+      "client_list": []
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 2,
+    "fields": {
+      "date_of_first_dispatch": null,
+      "periodicity": null,
+      "status": "C",
+      "datetime_to_start": null,
+      "created_at": "2024-09-15T10:13:37.200Z",
+      "update_at": "2024-09-15T10:13:37.200Z",
+      "message_id": 2,
+      "client_list": []
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 3,
+    "fields": {
+      "date_of_first_dispatch": null,
+      "periodicity": null,
+      "status": "C",
+      "datetime_to_start": null,
+      "created_at": "2024-09-15T10:21:58.153Z",
+      "update_at": "2024-09-15T10:21:58.153Z",
+      "message_id": 3,
+      "client_list": []
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 4,
+    "fields": {
+      "date_of_first_dispatch": null,
+      "periodicity": null,
+      "status": "C",
+      "datetime_to_start": null,
+      "created_at": "2024-09-15T10:30:45.309Z",
+      "update_at": "2024-09-15T10:30:45.309Z",
+      "message_id": 4,
+      "client_list": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 5,
+    "fields": {
+      "date_of_first_dispatch": null,
+      "periodicity": null,
+      "status": "C",
+      "datetime_to_start": null,
+      "created_at": "2024-09-15T11:57:09.410Z",
+      "update_at": "2024-09-15T11:57:09.410Z",
+      "message_id": 4,
+      "client_list": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 6,
+    "fields": {
+      "date_of_first_dispatch": null,
+      "periodicity": null,
+      "status": "C",
+      "datetime_to_start": null,
+      "created_at": "2024-09-15T12:04:14.628Z",
+      "update_at": "2024-09-15T12:04:14.628Z",
+      "message_id": 4,
+      "client_list": [
+        1,
+        4,
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "model": "mailing.attempt",
+    "pk": 1,
+    "fields": {
+      "date_first_attempt": "2024-09-15T10:31:35.963Z",
+      "date_last_attempt": "2024-09-15T10:31:53.269Z",
+      "status": true,
+      "server_response": "200",
+      "mailing_id": 1
+    }
+  },
+  {
+    "model": "mailing.attempt",
+    "pk": 2,
+    "fields": {
+      "date_first_attempt": "2024-09-15T10:32:05.645Z",
+      "date_last_attempt": "2024-09-15T10:32:05.645Z",
+      "status": false,
+      "server_response": "404",
+      "mailing_id": 2
+    }
+  }
+]
