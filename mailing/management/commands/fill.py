@@ -53,7 +53,8 @@ class Command(BaseCommand):
         for item in mailing:
             data = item['fields']
             if item['model'] == 'mailing.mailing':
-                mailing_for_create.append(Mailing(
+                mailing = Mailing.objects.create(
+                    pk=item['pk'],
                     date_of_first_dispatch=data.get('date_of_first_dispatch', None),
                     periodicity=data.get('periodicity', None),
                     status=data.get('status', None),
@@ -61,9 +62,11 @@ class Command(BaseCommand):
                     created_at=data.get('created_at', None),
                     update_at=data.get('update_at', None),
                     message_id=Message.objects.get(pk=data.get('message_id')),
-                    client_list=data.get('client_list', None),
-                    pk=item['pk'],
-                ))
+                )
+                clients = Client.objects.filter(pk__in=data.get('client_list', []))
+                mailing.client_list.set(clients)
+
+                mailing_for_create.append(mailing)
         return mailing_for_create
 
     def get_attempt(self, attempt) -> list:
