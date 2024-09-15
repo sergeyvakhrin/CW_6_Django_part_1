@@ -10,16 +10,16 @@ class MailingListView(ListView):
 
 class MailingCreateView(CreateView):
     model = Mailing
-    fields = ("...",)
+    fields = ("periodicity", 'status', 'datetime_to_start', 'message_id', 'client_list',)
     success_url = reverse_lazy('mailing:mailing_list',)
 
 
 class MailingUpdateView(UpdateView):
     model = Mailing
-    fields = ("...",)
+    fields = ("periodicity", 'status', 'datetime_to_start', 'message_id', 'client_list',)
 
     def get_success_url(self):
-        return reverse('mailing:message_detail', args=[self.kwargs.get('pk')])
+        return reverse('mailing:mailing_detail', args=[self.kwargs.get('pk')])
 
 
 class MailingDeleteView(DeleteView):

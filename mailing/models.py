@@ -42,7 +42,7 @@ class Mailing(models.Model):
     date_of_first_dispatch = models.DateTimeField(verbose_name="Дата первой отправки", **NULLABLE)
     periodicity = models.CharField(max_length=1, choices={"D": "Раз в день", "W": "Раз в неделю", "M": "Раз в месяц"}, verbose_name="Периодичность отправки", help_text="Выберите периодичность отправки", **NULLABLE)
     status = models.CharField(max_length=20, choices={"C": "Создана", "W": "Запущена", "F": "Завершена"}, verbose_name="Статус рассылки")
-    datetime_to_start = models.DateTimeField(verbose_name="Когда нужно разослать?", help_text="Введите дату и время, когда нужно отправить рассылку", **NULLABLE)
+    datetime_to_start = models.DateTimeField(verbose_name="Когда нужно разослать?", **NULLABLE)
     created_at = models.DateTimeField(verbose_name="Дата создания рассылки", auto_now_add=True)
     update_at = models.DateTimeField(verbose_name="Дата изменения рассылки", auto_now=True)
     message_id = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Сообщение", help_text="Выберите сообщение", related_name='Mailing')

@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 from pathlib import Path
-
+from django.db import connection
 from django.core.management import BaseCommand
 
 from mailing.models import Mailing, Client, Message, Attempt
@@ -88,6 +88,17 @@ class Command(BaseCommand):
     def handle(self, *args, **options) -> None:
         """ Метод автоматически срабатывает при обращении к коменде fill """
 
+        with connection.cursor() as cursor:
+            cursor.execute(f'TRUNCATE TABLE mailing_message RESTART IDENTITY CASCADE;')
+        with connection.cursor() as cursor:
+            cursor.execute(f'TRUNCATE TABLE mailing_client RESTART IDENTITY CASCADE;')
+        with connection.cursor() as cursor:
+            cursor.execute(f'TRUNCATE TABLE mailing_mailing RESTART IDENTITY CASCADE;')
+        with connection.cursor() as cursor:
+            cursor.execute(f'TRUNCATE TABLE mailing_attempt RESTART IDENTITY CASCADE;')
+        with connection.cursor() as cursor:
+            cursor.execute(f'TRUNCATE TABLE mailing_mailing_client_list RESTART IDENTITY CASCADE;')
+
         print("Загрузка данных")
         mailing = self.load_data()
 
@@ -109,7 +120,7 @@ class Command(BaseCommand):
         mailing_for_create = self.get_mailing(mailing)
         Mailing.objects.bulk_create(mailing_for_create)
 
-        print("Создание Попаток")
+        print("Создание Попыток")
         attempt_for_create = self.get_attempt(mailing)
         Attempt.objects.bulk_create(attempt_for_create)
 
