@@ -74,19 +74,28 @@ class Command(BaseCommand):
         attempt_for_create = []
         for item in attempt:
             data = item['fields']
-            if item['model'] == 'mailing.mailing':
+            if item['model'] == 'mailing.attempt':
                 attempt_for_create.append(Attempt(
                     date_first_attempt=data.get('date_first_attempt', None),
                     date_last_attempt=data.get('date_last_attempt', None),
                     status=data.get('status', None),
                     server_response=data.get('server_response', None),
-                    mailing_id=data['mailing_id'],
+                    mailing_id=Mailing.objects.get(pk=data['mailing_id']),
                     pk=item['pk'],
                 ))
         return attempt_for_create
 
     def handle(self, *args, **options) -> None:
         """ Метод автоматически срабатывает при обращении к коменде fill """
+
+        print("Загрузка данных")
+        mailing = self.load_data()
+
+        print("Очистка Базы данных")
+        Message.objects.all().delete()
+        Client.objects.all().delete()
+        Mailing.objects.all().delete()
+        Attempt.objects.all().delete()
 
         with connection.cursor() as cursor:
             cursor.execute(f'TRUNCATE TABLE mailing_message RESTART IDENTITY CASCADE;')
@@ -99,15 +108,6 @@ class Command(BaseCommand):
         with connection.cursor() as cursor:
             cursor.execute(f'TRUNCATE TABLE mailing_mailing_client_list RESTART IDENTITY CASCADE;')
 
-        print("Загрузка данных")
-        mailing = self.load_data()
-
-        print("Очистка Базы данных")
-        Message.objects.all().delete()
-        Client.objects.all().delete()
-        Mailing.objects.all().delete()
-        Attempt.objects.all().delete()
-
         print("Создание Сообщений")
         message_for_create = self.get_message(mailing)
         Message.objects.bulk_create(message_for_create)
@@ -118,7 +118,8 @@ class Command(BaseCommand):
 
         print("Создание Рассылок")
         mailing_for_create = self.get_mailing(mailing)
-        Mailing.objects.bulk_create(mailing_for_create)
+        print("Рассылки созданы уже ранее")
+        # Mailing.objects.bulk_create(mailing_for_create)
 
         print("Создание Попыток")
         attempt_for_create = self.get_attempt(mailing)
