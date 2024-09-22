@@ -4,9 +4,9 @@
     <form class="row" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-6">
-                <div class="card">
+                <div class="card card-body">
                     {% if object %}
-                    <p class="card-text">Редактирование рассылки</p>
+                    <p class="card-text">Сообщение рассылки</p>
                     {% else %}
                     <p class="card-text">Создание рассылки</p>
                     {% endif %}
@@ -24,7 +24,19 @@
                 </div>
             </div>
 
-
+            {% if object %}
+            <div class="col-6">
+                <div class="card card-body">
+                    <p class="card-text">Редактирование рассылки</p>
+                    <div class="card_body">
+                        {{ formset.management_form }}
+                        {% for form in formset.forms %}
+                        {{ form.as_p }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
 
         </div>
     </form>
