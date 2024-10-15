@@ -19,6 +19,7 @@
     <nav class="ms-5">
         <a class="p-2 btn btn-outline-primary" href="/">Сообщения</a>
         <a class="p-2 btn btn-outline-primary" href="/mailing/">Рассылки</a>
+        <a class="p-2 btn btn-outline-primary" href="/client/">Клиенты</a>
     </nav>
 </div>
 
@@ -27,7 +28,7 @@
     <p class="lead">Сервис рассылок - это отличный вариант информирования ваших клиентов</p>
     <a class="btn btn-primary" href="{% url 'mailing:message_create' %}" role="button">Создать Сообщение</a>
     <a class="btn btn-primary" href="{% url 'mailing:mailing_create' %}" role="button">Создать Рассылку</a>
-
+    <a class="btn btn-primary" href="{% url 'mailing:client_create' %}" role="button">Добавить Клиента</a>
 </div>
 
 {% block content %}

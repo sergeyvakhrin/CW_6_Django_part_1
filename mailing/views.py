@@ -1,8 +1,8 @@
 from django.forms import inlineformset_factory
 from django.urls import reverse_lazy, reverse
 
-from mailing.forms import MailingForm, MessageForm
-from mailing.models import Mailing, Message
+from mailing.forms import MailingForm, MessageForm, ClientForm
+from mailing.models import Mailing, Message, Client
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 class MailingListView(ListView):
@@ -78,3 +78,26 @@ class MessageDetailView(DetailView):
     model = Message
 
 ###########################################
+
+class ClientListView(ListView):
+    model = Client
+
+
+class ClientCreateView(CreateView):
+    model = Client
+    form_class = ClientForm
+    success_url = reverse_lazy('mailing:client_list',)
+
+
+class ClientUpdateView(UpdateView):
+    model = Client
+    form_class = ClientForm
+    success_url = reverse_lazy('mailing:client_list', )
+
+class ClientDeleteView(DeleteView):
+    model = Client
+    success_url = reverse_lazy('mailing:client_list')
+
+
+class ClientDetailView(DetailView):
+    model = Client
