@@ -2,7 +2,7 @@ from django.forms import inlineformset_factory
 from django.urls import reverse_lazy, reverse
 
 from mailing.forms import MailingForm, MessageForm, ClientForm
-from mailing.models import Mailing, Message, Client
+from mailing.models import Mailing, Message, Client, Attempt
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 class MailingListView(ListView):
@@ -101,3 +101,12 @@ class ClientDeleteView(DeleteView):
 
 class ClientDetailView(DetailView):
     model = Client
+
+###########################################
+
+class AttemptListView(ListView):
+    model = Attempt
+
+
+class AttemptDetailView(DetailView):
+    model = Attempt
