@@ -38,6 +38,7 @@ class Client(models.Model):
         ordering = ("name",)
 
 
+
 class Mailing(models.Model):
     """ Класс для модели Рассылки """
     date_of_first_dispatch = models.DateTimeField(verbose_name="Дата первой отправки", **NULLABLE)
