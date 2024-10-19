@@ -51,7 +51,7 @@ class Mailing(models.Model):
 
     def __str__(self):
         """ Строковое представление данных """
-        return f"{self.status}"
+        return f"{self.date_of_first_dispatch}"
 
     class Meta:
         verbose_name = "Рассылка"

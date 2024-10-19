@@ -6,8 +6,8 @@
       "title": "Первая Рассылка",
       "message": "Это самая первая рассылка",
       "image": "",
-      "created_at": "2024-09-15T09:55:25.948Z",
-      "update_at": "2024-09-15T09:55:25.948Z"
+      "created_at": "2024-09-28T12:55:08.943Z",
+      "update_at": "2024-09-28T12:55:08.943Z"
     }
   },
   {
@@ -17,8 +17,8 @@
       "title": "Вторая рассылка",
       "message": "Это вторая рассылка",
       "image": "",
-      "created_at": "2024-09-15T09:55:50.769Z",
-      "update_at": "2024-09-15T09:55:50.770Z"
+      "created_at": "2024-09-28T12:55:08.943Z",
+      "update_at": "2024-10-16T18:40:40.006Z"
     }
   },
   {
@@ -28,8 +28,8 @@
       "title": "Рассылка",
       "message": "Это третья рассылка без заголовка",
       "image": "",
-      "created_at": "2024-09-15T09:56:17.831Z",
-      "update_at": "2024-09-15T09:56:17.831Z"
+      "created_at": "2024-09-28T12:55:08.943Z",
+      "update_at": "2024-09-28T12:55:08.943Z"
     }
   },
   {
@@ -37,10 +37,10 @@
     "pk": 4,
     "fields": {
       "title": "Четвертая Рассылка",
-      "message": "Четвертая Рассылка",
+      "message": "После создания новой рассылки, если текущие дата и время больше даты и времени начала и меньше даты и времени окончания, должны быть выбраны из справочника все клиенты, которые указаны в настройках рассылки и запущена отправка для всех этих клиентов.\r\nЕсли создается рассылка с временем старта в будущем, отправка должна стартовать автоматически по наступлению этого времени без дополнительных действий со стороны пользователя сервиса.\r\nПо ходу отправки рассылки должна собираться статистика (см. описание сущностей «Рассылка» и «Попытка» выше) по каждой рассылке для последующего формирования отчетов. Попытка создается одна для одной рассылки. Формировать попытки рассылки для всех клиентов отдельно не нужно.\r\nВнешний сервис, который принимает отправляемые сообщения, может долго обрабатывать запрос, отвечать некорректными данными, на какое-то время вообще не принимать запросы. Нужна корректная обработка подобных ошибок. Проблемы с внешним сервисом не должны влиять на стабильность работы разрабатываемого сервиса рассылок.",
       "image": "",
-      "created_at": "2024-09-15T10:29:51.618Z",
-      "update_at": "2024-09-15T10:29:51.618Z"
+      "created_at": "2024-09-28T12:55:08.943Z",
+      "update_at": "2024-10-16T18:48:07.627Z"
     }
   },
   {
@@ -71,69 +71,74 @@
     }
   },
   {
-    "model": "mailing.client",
-    "pk": 4,
-    "fields": {
-      "email": "parlamentsv@mail.ru",
-      "name": "Сергей",
-      "comment": "дубль почты для теста"
-    }
-  },
-  {
     "model": "mailing.mailing",
     "pk": 1,
     "fields": {
-      "date_of_first_dispatch": null,
-      "periodicity": null,
+      "date_of_first_dispatch": "2024-10-20T18:59:00Z",
+      "periodicity": "D",
       "status": "C",
-      "datetime_to_start": null,
-      "created_at": "2024-09-15T10:13:11.764Z",
-      "update_at": "2024-09-15T10:13:11.764Z",
+      "datetime_to_start": "2024-10-17T10:00:00Z",
+      "created_at": "2024-09-28T12:55:08.952Z",
+      "update_at": "2024-10-19T12:56:35.121Z",
       "message_id": 1,
-      "client_list": []
+      "client_list": [
+        1,
+        3,
+        2
+      ]
     }
   },
   {
     "model": "mailing.mailing",
     "pk": 2,
     "fields": {
-      "date_of_first_dispatch": null,
-      "periodicity": null,
+      "date_of_first_dispatch": "2024-10-20T18:59:00Z",
+      "periodicity": "D",
       "status": "C",
-      "datetime_to_start": null,
-      "created_at": "2024-09-15T10:13:37.200Z",
-      "update_at": "2024-09-15T10:13:37.200Z",
+      "datetime_to_start": "2024-10-17T10:00:00Z",
+      "created_at": "2024-09-28T12:55:08.962Z",
+      "update_at": "2024-10-19T12:56:43.833Z",
       "message_id": 2,
-      "client_list": []
+      "client_list": [
+        1,
+        3,
+        2
+      ]
     }
   },
   {
     "model": "mailing.mailing",
     "pk": 3,
     "fields": {
-      "date_of_first_dispatch": null,
+      "date_of_first_dispatch": "2024-10-20T18:37:00Z",
       "periodicity": null,
       "status": "C",
       "datetime_to_start": null,
-      "created_at": "2024-09-15T10:21:58.153Z",
-      "update_at": "2024-09-15T10:21:58.153Z",
+      "created_at": "2024-09-28T12:55:08.966Z",
+      "update_at": "2024-10-19T12:34:33.373Z",
       "message_id": 3,
-      "client_list": []
+      "client_list": [
+        1,
+        3,
+        2
+      ]
     }
   },
   {
     "model": "mailing.mailing",
     "pk": 4,
     "fields": {
-      "date_of_first_dispatch": null,
+      "date_of_first_dispatch": "2024-10-20T18:37:00Z",
       "periodicity": null,
       "status": "C",
       "datetime_to_start": null,
-      "created_at": "2024-09-15T10:30:45.309Z",
-      "update_at": "2024-09-15T10:30:45.309Z",
+      "created_at": "2024-09-28T12:55:08.969Z",
+      "update_at": "2024-10-19T12:34:50.772Z",
       "message_id": 4,
       "client_list": [
-        1
+        1,
+        3,
+        2
       ]
     }
   },
@@ -141,12 +146,12 @@
     "model": "mailing.mailing",
     "pk": 5,
     "fields": {
-      "date_of_first_dispatch": null,
-      "periodicity": null,
+      "date_of_first_dispatch": "2024-10-20T18:37:00Z",
+      "periodicity": "D",
       "status": "C",
-      "datetime_to_start": null,
-      "created_at": "2024-09-15T11:57:09.410Z",
-      "update_at": "2024-09-15T11:57:09.410Z",
+      "datetime_to_start": "2024-10-17T10:00:00Z",
+      "created_at": "2024-09-28T12:55:08.975Z",
+      "update_at": "2024-10-19T12:35:02.140Z",
       "message_id": 4,
       "client_list": [
         2
@@ -157,16 +162,15 @@
     "model": "mailing.mailing",
     "pk": 6,
     "fields": {
-      "date_of_first_dispatch": null,
-      "periodicity": null,
+      "date_of_first_dispatch": "2024-10-20T18:40:00Z",
+      "periodicity": "D",
       "status": "C",
-      "datetime_to_start": null,
-      "created_at": "2024-09-15T12:04:14.628Z",
-      "update_at": "2024-09-15T12:04:14.628Z",
+      "datetime_to_start": "2024-10-17T10:00:00Z",
+      "created_at": "2024-09-28T12:55:08.981Z",
+      "update_at": "2024-10-19T12:37:20.282Z",
       "message_id": 4,
       "client_list": [
         1,
-        4,
         3,
         2
       ]
@@ -176,8 +180,8 @@
     "model": "mailing.attempt",
     "pk": 1,
     "fields": {
-      "date_first_attempt": "2024-09-15T10:31:35.963Z",
-      "date_last_attempt": "2024-09-15T10:31:53.269Z",
+      "date_first_attempt": "2024-09-28T12:55:08.988Z",
+      "date_last_attempt": "2024-09-28T12:55:08.988Z",
       "status": true,
       "server_response": "200",
       "mailing_id": 1
@@ -187,8 +191,8 @@
     "model": "mailing.attempt",
     "pk": 2,
     "fields": {
-      "date_first_attempt": "2024-09-15T10:32:05.645Z",
-      "date_last_attempt": "2024-09-15T10:32:05.645Z",
+      "date_first_attempt": "2024-09-28T12:55:08.988Z",
+      "date_last_attempt": "2024-09-28T12:55:08.988Z",
       "status": false,
       "server_response": "404",
       "mailing_id": 2
