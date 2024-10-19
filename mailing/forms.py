@@ -1,5 +1,5 @@
 from django.forms import BooleanField, ModelForm
-
+from django import forms
 from mailing.models import Mailing, Message, Client
 
 
@@ -15,6 +15,18 @@ class StyleMixin:
 
 class MailingForm(StyleMixin, ModelForm):
 
+    date_of_first_dispatch = forms.DateTimeField(widget=forms.DateTimeInput(attrs={
+        'type': 'datetime-local',
+        'class': 'form-control'}),
+        label='Дата первой отправки',
+        required=True
+    )
+    datetime_to_start = forms.DateTimeField(widget=forms.DateTimeInput(attrs={
+        'type': 'datetime-local',
+        'class': 'form-control'}),
+        label='Когда нужно разослать?',
+        required=True
+    )
     class Meta:
         model = Mailing
         fields = "__all__"
