@@ -19,14 +19,10 @@ class MailingForm(StyleMixin, ModelForm):
         'type': 'datetime-local',
         'class': 'form-control'}),
         label='Дата первой отправки',
-        required=True
-    )
-    datetime_to_start = forms.DateTimeField(widget=forms.DateTimeInput(attrs={
-        'type': 'datetime-local',
-        'class': 'form-control'}),
-        label='Когда нужно разослать?',
-        required=True
-    )
+        required=True,
+        input_formats=['%Y-%m-%d', '%d-%m-%Y']
+        )
+
     class Meta:
         model = Mailing
         fields = "__all__"

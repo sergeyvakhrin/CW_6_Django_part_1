@@ -12,7 +12,7 @@ class MessageAdmin(admin.ModelAdmin):
 
 @admin.register(Mailing)
 class MailingAdmin(admin.ModelAdmin):
-    list_display = ('id', 'date_of_first_dispatch', 'periodicity', 'status', 'datetime_to_start', 'created_at', 'update_at', 'message_id',)
+    list_display = ('id', 'date_of_first_dispatch', 'periodicity', 'status', 'created_at', 'update_at', 'message_id', Mailing.get_clients)
     list_filter = ('message_id', 'status')
     search_fields = ('periodicity',)
 
@@ -26,6 +26,6 @@ class ClientAdmin(admin.ModelAdmin):
 
 @admin.register(Attempt)
 class AttemptAdmin(admin.ModelAdmin):
-    list_display = ('id', 'date_first_attempt', 'date_last_attempt', 'status', 'server_response',)
+    list_display = ('id', 'date_first_attempt', 'date_last_attempt', 'status', 'server_response', 'mailing_id')
     list_filter = ('status',)
     search_fields = ('date_last_attempt', 'server_response',)

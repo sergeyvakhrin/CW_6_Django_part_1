@@ -43,15 +43,18 @@ class Mailing(models.Model):
     date_of_first_dispatch = models.DateTimeField(verbose_name="Дата первой отправки", **NULLABLE)
     periodicity = models.CharField(max_length=1, choices={"D": "Раз в день", "W": "Раз в неделю", "M": "Раз в месяц"}, verbose_name="Периодичность отправки", help_text="Выберите периодичность отправки", **NULLABLE)
     status = models.CharField(max_length=20, choices={"C": "Создана", "W": "Запущена", "F": "Завершена"}, verbose_name="Статус рассылки")
-    datetime_to_start = models.DateTimeField(verbose_name="Когда нужно разослать?", **NULLABLE)
     created_at = models.DateTimeField(verbose_name="Дата создания рассылки", auto_now_add=True)
     update_at = models.DateTimeField(verbose_name="Дата изменения рассылки", auto_now=True)
     message_id = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Сообщение", help_text="Выберите сообщение", related_name='Mailing')
-    client_list = models.ManyToManyField(Client, verbose_name='Клиенты', help_text='Выберите клиентов для рассылки', related_name='Client')
+    client_list = models.ManyToManyField(Client, verbose_name='Клиенты', help_text='Выберите клиентов для рассылки', related_name='client')
 
     def __str__(self):
         """ Строковое представление данных """
-        return f"{self.date_of_first_dispatch}"
+        return f"{self.message_id.title}"
+
+    def get_clients(self):
+        """ Метод для вывода списка ManyToManyField client_list в admin панели """
+        return ", ".join([client.email for client in self.client_list.all()])
 
     class Meta:
         verbose_name = "Рассылка"
