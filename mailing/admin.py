@@ -26,6 +26,6 @@ class ClientAdmin(admin.ModelAdmin):
 
 @admin.register(Attempt)
 class AttemptAdmin(admin.ModelAdmin):
-    list_display = ('id', 'date_first_attempt', 'date_last_attempt', 'status', 'server_response', 'mailing_id')
+    list_display = ('id', 'date_last_attempt', 'status', 'server_response', 'mailing_id')
     list_filter = ('status',)
     search_fields = ('date_last_attempt', 'server_response',)

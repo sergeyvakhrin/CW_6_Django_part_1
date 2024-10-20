@@ -64,8 +64,7 @@ class Mailing(models.Model):
 
 class Attempt(models.Model):
     """ Класс для модели Попытки """
-    date_first_attempt = models.DateTimeField(verbose_name="Дата первой попытки", auto_now_add=True)
-    date_last_attempt = models.DateTimeField(verbose_name="Дата последней попытки", auto_now=True)
+    date_last_attempt = models.DateTimeField(verbose_name="Дата попытки", auto_now=True)
     status = models.BooleanField(verbose_name="Статус рассылки")
     server_response = models.CharField(max_length=50, verbose_name="Ответ сервера")
     mailing_id = models.ForeignKey(Mailing, on_delete=models.CASCADE, verbose_name="Рассылка", help_text="Выберите рассылку", related_name='Attempt')
