@@ -190,6 +190,40 @@
     }
   },
   {
+    "model": "mailing.mailing",
+    "pk": 8,
+    "fields": {
+      "date_of_first_dispatch": "2024-10-21T07:13:00Z",
+      "periodicity": "D",
+      "status": "W",
+      "created_at": "2024-10-21T07:10:19.704Z",
+      "update_at": "2024-10-21T07:12:57.237Z",
+      "message_id": 3,
+      "client_list": [
+        1,
+        3,
+        2
+      ]
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 9,
+    "fields": {
+      "date_of_first_dispatch": "2024-10-22T14:44:00Z",
+      "periodicity": "D",
+      "status": "W",
+      "created_at": "2024-10-21T07:40:47.482Z",
+      "update_at": "2024-10-21T07:40:47.482Z",
+      "message_id": 2,
+      "client_list": [
+        1,
+        3,
+        2
+      ]
+    }
+  },
+  {
     "model": "mailing.attempt",
     "pk": 10,
     "fields": {
@@ -257,6 +291,16 @@
       "status": true,
       "server_response": "200",
       "mailing_id": 1
+    }
+  },
+  {
+    "model": "mailing.attempt",
+    "pk": 17,
+    "fields": {
+      "date_last_attempt": "2024-10-21T07:13:02.000Z",
+      "status": true,
+      "server_response": "None",
+      "mailing_id": 8
     }
   }
 ]

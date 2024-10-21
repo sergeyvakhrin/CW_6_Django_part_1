@@ -1,4 +1,4 @@
-from asyncio import sleep
+from time import sleep
 
 from django.apps import AppConfig
 

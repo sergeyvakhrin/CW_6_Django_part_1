@@ -11,7 +11,7 @@ def get_mailings():
 
     # Словарь, где ключ Объект Рассылка, а значение список Объектов Клиентов - стек для send_mail()
     mailing_client_dict: dict = {}
-    date_time = datetime.datetime.now(pytz.utc)
+    date_time = datetime.datetime.now(pytz.utc) # Todo: установить местное время
     print("Получаем текущую даты и время:", date_time)
 
     # Получили список объектов рассылок")
@@ -33,14 +33,17 @@ def get_mailings():
                 if mailing.periodicity == "D":
                     periodicity_date = attempt_date_mailing.date_last_attempt + datetime.timedelta(days=1) # Todo: убрать в одельную функцию
                     if periodicity_date <= date_time:
+                        # Todo: В periodicity_date добавить присвоение времени из рассылки
                         mailing_client_dict[mailing] = mailing.client_list.all()
                 elif mailing.periodicity == "W":
                     periodicity_date = attempt_date_mailing.date_last_attempt + datetime.timedelta(days=7) # Todo: убрать в одельную функцию
                     if periodicity_date <= date_time:
+                        # Todo: В periodicity_date добавить присвоение времени из рассылки
                         mailing_client_dict[mailing] = mailing.client_list.all()
                 elif mailing.periodicity == "M":
                     periodicity_date = attempt_date_mailing.date_last_attempt + datetime.timedelta(days=30) # Todo: убрать в одельную функцию
                     if periodicity_date <= date_time:
+                        # Todo: В periodicity_date добавить присвоение времени из рассылки
                         mailing_client_dict[mailing] = mailing.client_list.all()
     # Передаем полученные данные на отправку
     do_send_mail(mailing_client_dict)
@@ -61,15 +64,16 @@ def do_send_mail(mailing_client_dict):
             server_response = 'None'
             attempt_for_create = []
             attempt_for_create.append(Attempt(status=True, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id)))
-            Attempt.objects.bulk_create(attempt_for_create)
+            Attempt.objects.bulk_create(attempt_for_create) # Todo: разобраться с create добавлением одного элемента
         except:
             server_response = 'None'
             attempt_for_create = []
             attempt_for_create.append(Attempt(status=False, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id)))
-            Attempt.objects.bulk_create(attempt_for_create)
+            Attempt.objects.bulk_create(attempt_for_create) # Todo: разобраться с create добавлением одного элемента
 
 
 def start():
+    """ Функция для реализации периодических задач """
     scheduler = BackgroundScheduler()
     scheduler.add_job(get_mailings, 'interval', seconds=10)
     scheduler.start()
