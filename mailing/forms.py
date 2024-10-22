@@ -15,6 +15,7 @@ class StyleMixin:
 
 class MailingForm(StyleMixin, ModelForm):
 
+    # Добавляем отображение календаря при указании даты
     date_of_first_dispatch = forms.DateTimeField(widget=forms.DateTimeInput(attrs={
         'type': 'datetime-local',
         'class': 'form-control'}),
@@ -25,18 +26,18 @@ class MailingForm(StyleMixin, ModelForm):
 
     class Meta:
         model = Mailing
-        fields = "__all__"
+        exclude = ('owner',)
 
 
 class MessageForm(StyleMixin, ModelForm):
 
     class Meta:
         model = Message
-        fields = "__all__"
+        exclude = ('owner',)
 
 
 class ClientForm(StyleMixin, ModelForm):
 
     class Meta:
         model = Client
-        fields = "__all__"
+        exclude = ('owner',)

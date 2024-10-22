@@ -75,6 +75,8 @@ class Attempt(models.Model):
     status = models.BooleanField(verbose_name="Статус рассылки")
     server_response = models.CharField(max_length=50, verbose_name="Ответ сервера")
     mailing_id = models.ForeignKey(Mailing, on_delete=models.CASCADE, verbose_name="Рассылка", help_text="Выберите рассылку", related_name='Attempt')
+    owner = models.ForeignKey(User, **NULLABLE, verbose_name='Владелец', help_text='Введите владельца',
+                              on_delete=models.SET_NULL)
 
     def __str__(self):
         """ Строковое представление данных """

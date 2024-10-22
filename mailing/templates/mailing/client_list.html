@@ -6,6 +6,7 @@
         <div class="form-control text-center"> Клиенты </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for item in object_list %}
+            {% if item.owner == user %}
             <div class="col">
                 <div class="card shadow-sm">
                     <img src="{{ mailing.image | media_filter }}">
@@ -31,6 +32,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
             {% endfor %}
         </div>
     </div>

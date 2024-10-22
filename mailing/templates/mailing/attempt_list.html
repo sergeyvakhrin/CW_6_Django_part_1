@@ -6,6 +6,7 @@
         <div class="form-control text-center"> Попытки </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for item in object_list %}
+            {% if item.owner == user %}
             <div class="col">
                 <div class="card shadow-sm">
 
@@ -23,6 +24,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
             {% endfor %}
         </div>
     </div>
