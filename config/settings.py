@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+from vars import EMAIL_HOST1, EMAIL_PORT1, EMAIL_HOST_USER1, EMAIL_HOST_PASSWORD1, EMAIL_USE_SSL1
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -140,10 +142,13 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/users/'
 
-EMAIL_HOST = ''
-EMAIL_PORT = 465
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_SSL = True
+EMAIL_HOST = EMAIL_HOST1
+EMAIL_PORT = EMAIL_PORT1
+EMAIL_HOST_USER = EMAIL_HOST_USER1
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD1
+EMAIL_USE_SSL = EMAIL_USE_SSL1
+
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
