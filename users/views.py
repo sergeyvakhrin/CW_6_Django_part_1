@@ -1,6 +1,7 @@
 import secrets
 
 from django.contrib.auth import logout
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404
@@ -32,6 +33,7 @@ class RegisterView(CreateView):
             from_email=EMAIL_HOST_USER,
             recipient_list=[user.email]
         )
+
         return super().form_valid(form)
 
 def email_verification(request, token):
@@ -40,6 +42,22 @@ def email_verification(request, token):
     user.save()
     return redirect(reverse('users:login'))
 
+
+def recovery_password(request):
+    if request.method == "POST":
+        email = request.POST.get('email')
+        token = secrets.token_hex(8)
+
+        user_recovery_password = get_object_or_404(User, email=email)
+        user_recovery_password.password = make_password(token)
+        user_recovery_password.save()
+        send_mail(
+                  subject="Смена пароля",
+                  message=f"Автоматически сформированный пароль: {token}",
+                  from_email=EMAIL_HOST_USER,
+                  recipient_list=[email]
+                )
+    return render(request, 'users/recovery_password_form.html')
 
 
 class ProfileView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
