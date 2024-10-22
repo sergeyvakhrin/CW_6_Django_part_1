@@ -1,5 +1,6 @@
 from django.db import models
-from django.forms import DateTimeInput
+
+from users.models import User
 
 NULLABLE = {"null": True, "blank": True}
 
@@ -11,6 +12,8 @@ class Message(models.Model):
     image = models.ImageField(upload_to="blog/", verbose_name="Фото", **NULLABLE, help_text="Загрузите фото")
     created_at = models.DateTimeField(verbose_name="Дата создания", auto_now_add=True)
     update_at = models.DateTimeField(verbose_name="Дата изменения", auto_now=True)
+    owner = models.ForeignKey(User, **NULLABLE, verbose_name='Владелец', help_text='Введите владельца',
+                              on_delete=models.SET_NULL)
 
     def __str__(self):
         """ Строковое представление данных """
@@ -27,6 +30,8 @@ class Client(models.Model):
     email = models.CharField(max_length=100, verbose_name="Почта для рассылки", help_text='Заполните почту для рассылки')
     name = models.CharField(max_length=100, verbose_name="ФИО", help_text="Введите имя клиента", **NULLABLE)
     comment = models.TextField(verbose_name="Комментарий", help_text="Добавьте комментарий", **NULLABLE)
+    owner = models.ForeignKey(User, **NULLABLE, verbose_name='Владелец', help_text='Введите владельца',
+                              on_delete=models.SET_NULL)
 
     def __str__(self):
         """ Строковое представление данных """
@@ -47,6 +52,8 @@ class Mailing(models.Model):
     update_at = models.DateTimeField(verbose_name="Дата изменения рассылки", auto_now=True)
     message_id = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Сообщение", help_text="Выберите сообщение", related_name='Mailing')
     client_list = models.ManyToManyField(Client, verbose_name='Клиенты', help_text='Выберите клиентов для рассылки', related_name='client')
+    owner = models.ForeignKey(User, **NULLABLE, verbose_name='Владелец', help_text='Введите владельца',
+                              on_delete=models.SET_NULL)
 
     def __str__(self):
         """ Строковое представление данных """
