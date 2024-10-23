@@ -4,7 +4,7 @@
     "pk": 2,
     "fields": {
       "password": "pbkdf2_sha256$720000$Fm4fbfMUynaG4kDFiQijcT$XJvk2JbIcZkSE6QoNaXUgVl9YXVq8Qnt2NH0VNLDjiE=",
-      "last_login": "2024-10-23T07:36:02Z",
+      "last_login": "2024-10-23T12:53:03.421Z",
       "is_superuser": true,
       "first_name": "Admin",
       "last_name": "SkyPro",
@@ -78,15 +78,15 @@
     "pk": 3,
     "fields": {
       "password": "pbkdf2_sha256$720000$u4t5bYacAVKDqwvATr0laA$IvyN0v8y8xqIKr3L5KU1KgYwVtDns7nndYPJmsKMyD8=",
-      "last_login": "2024-10-23T08:58:12.784Z",
+      "last_login": "2024-10-23T12:28:04.605Z",
       "is_superuser": false,
-      "first_name": "",
-      "last_name": "",
+      "first_name": "Сергей",
+      "last_name": "Сергеев",
       "is_staff": true,
       "date_joined": "2024-10-21T13:38:09Z",
       "email": "test1@sky.pro",
       "avatar": "",
-      "phone": null,
+      "phone": "8888888888",
       "country": null,
       "token": null,
       "is_active": true,
@@ -101,7 +101,7 @@
     "pk": 4,
     "fields": {
       "password": "pbkdf2_sha256$720000$MgpWtF4A4y42aC6zU6EQIi$O/atZhPPaVhYs++zglieOQ89wqd/iLJ4tL6iQOUqytI=",
-      "last_login": "2024-10-21T14:11:39.776Z",
+      "last_login": "2024-10-23T14:18:54.297Z",
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
@@ -121,23 +121,23 @@
   },
   {
     "model": "users.user",
-    "pk": 10,
+    "pk": 11,
     "fields": {
-      "password": "pbkdf2_sha256$720000$FQ4fXh5O5i648qu0xCoKdO$CdqasySIpGyLplj/6g/2SHvx3VH1HZllo4GTVz9YouM=",
-      "last_login": "2024-10-22T18:41:17.062Z",
+      "password": "pbkdf2_sha256$720000$jg42NA42e7w0V6xbgcvL08$+u+e4lhDTk6l/2ncROKZmSeYbM0YEDz0maS7jry02JE=",
+      "last_login": null,
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
-      "is_staff": false,
-      "date_joined": "2024-10-22T18:40:29.613Z",
-      "email": "parlamentsv@mail.ru",
+      "is_staff": true,
+      "date_joined": "2024-10-23T12:52:29Z",
+      "email": "parlamentsv@gmail.com",
       "avatar": "",
       "phone": null,
       "country": null,
-      "token": "6fead195f3689e913643bc1b18db4635",
+      "token": "20cc495af51f66ff594a060954b61936",
       "is_active": true,
       "groups": [
-        2
+        1
       ],
       "user_permissions": []
     }
