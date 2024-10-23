@@ -31,7 +31,7 @@
                 <a class="p-2 btn btn-outline-primary" href="/attempt/">Попытки рассылок</a>
             {% endif %}
             {% if perms.users.view_user %}
-                <a class="p-2 btn btn-outline-primary" href="/usersmailing/">Пользователи</a>
+                <a class="p-2 btn btn-outline-primary" href="{% url 'users:user_list' %}">Пользователи</a>
             {% endif %}
         {% endif %}
     </nav>

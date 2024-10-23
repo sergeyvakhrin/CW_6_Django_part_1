@@ -15,13 +15,13 @@ from users.forms import UserProfileForm, UserRegisterForm, UserManagerForm, User
 from users.models import User
 
 
-class UsersListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
+class UserListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = User
     permission_required = 'users.view_user'
 
 
-class UsersDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
-    madel = User
+class UserDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
+    model = User
     permission_required = 'users.view_user'
 
 
@@ -73,10 +73,10 @@ def recovery_password(request):
     return render(request, 'users/recovery_password_form.html')
 
 
-class ProfileView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class ProfileView(LoginRequiredMixin,UpdateView):
     model = User
     form_class = UserProfileForm
-    permission_required = 'users.change_profile'
+    # permission_required = 'users.change_profile'
     success_url = reverse_lazy('users:profile')
 
     def get_object(self, queryset=None):
@@ -88,12 +88,15 @@ def logout_view(request):
     return redirect('/')
 
 
-class UsersUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class UserUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = User
     form_class = UserManagerForm
+    permission_required = 'users.change_user'
+    success_url = reverse_lazy('users:user_list', )
 
 
-class UsersDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class UserDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = User
-    success_url = reverse_lazy('users:users_list')
+    permission_required = 'users:delete_user'
+    success_url = reverse_lazy('users:user_list')
 

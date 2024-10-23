@@ -54,6 +54,7 @@ class Mailing(models.Model):
     client_list = models.ManyToManyField(Client, verbose_name='Клиенты', help_text='Выберите клиентов для рассылки', related_name='client')
     owner = models.ForeignKey(User, **NULLABLE, verbose_name='Владелец', help_text='Введите владельца',
                               on_delete=models.SET_NULL)
+    is_published = models.BooleanField(default=True, verbose_name="Опубликовано", help_text="Отметьте для активации")
 
     def __str__(self):
         """ Строковое представление данных """
@@ -68,7 +69,7 @@ class Mailing(models.Model):
         verbose_name_plural = "Рассылки"
         ordering = ("status",)
         permissions = [
-            ("Can_edit_status", "Can edit status"),
+            ("Can_is_published", "Can is published"),
         ]
 
 class Attempt(models.Model):

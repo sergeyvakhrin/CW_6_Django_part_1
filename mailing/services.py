@@ -1,8 +1,11 @@
 import datetime
+import smtplib
 
 import pytz
 from apscheduler.schedulers.background import BackgroundScheduler
+from django.core.mail import send_mail
 
+from config.settings import EMAIL_HOST_USER
 from mailing.models import Attempt, Mailing
 
 
@@ -22,7 +25,7 @@ def get_mailings():
         attempt_date_mailing = Attempt.objects.filter(mailing_id_id=mailing.id).exclude(status="False").order_by(
             'date_last_attempt').last()
         # Проверяем активность рассылки -", mailing.status)
-        if mailing.status == 'W':
+        if mailing.status == 'W' and mailing.is_published:
             # Проверяем наличие успешных попыток -", attempt_list_mailing)
             if attempt_date_mailing is None:
                 # Проверяем дату первой отправки с текущей датой", mailing.date_of_first_dispatch, date_time)
@@ -61,15 +64,16 @@ def do_send_mail(mailing_client_dict):
             print(f'Рассылка: {mailing.message_id.title}\n'
                   f'Сообщение: {mailing.message_id.message}\n'
                   f'Получатели: {clients}')
-            server_response = 'None'
-            attempt_for_create = []
-            attempt_for_create.append(Attempt(status=True, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id)))
-            Attempt.objects.bulk_create(attempt_for_create) # Todo: разобраться с create добавлением одного элемента
-        except:
-            server_response = 'None'
-            attempt_for_create = []
-            attempt_for_create.append(Attempt(status=False, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id)))
-            Attempt.objects.bulk_create(attempt_for_create) # Todo: разобраться с create добавлением одного элемента
+            server_response = send_mail(
+                subject=mailing.message_id.title,
+                message=mailing.message_id.message,
+                from_email=EMAIL_HOST_USER,
+                recipient_list=clients,
+                fail_silently=False,
+            )
+            Attempt.objects.create(status=True, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id)) # Todo: добавит автоматическое подставление пользователя
+        except smtplib.SMTPException as server_response:
+            Attempt.objects.create(status=False, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id)) # Todo: добавит автоматическое подставление пользователя
 
 
 def start():

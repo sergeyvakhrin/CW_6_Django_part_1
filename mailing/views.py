@@ -1,9 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.forms import inlineformset_factory
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 
-from mailing.forms import MailingForm, MessageForm, ClientForm
+from mailing.forms import MailingForm, MessageForm, ClientForm, MailingManagerForm
 from mailing.models import Mailing, Message, Client, Attempt
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -31,6 +32,15 @@ class MailingUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
     form_class = MailingForm
     permission_required = 'mailing.change_mailing'
     success_url = reverse_lazy('mailing:mailing_list', )
+
+    def get_form_class(self):
+        user = self.request.user
+        if user == self.object.owner or user.is_superuser:
+            return MailingForm
+        if user.has_perm('mailing.Can_is_published'):
+            return MailingManagerForm
+        raise PermissionDenied
+
 
 class MailingDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Mailing

@@ -32,11 +32,19 @@ class MailingForm(StyleMixin, ModelForm):
         exclude = ('owner',)
 
 
+class MailingManagerForm(StyleMixin, ModelForm):
+    """ Прописываем форму для кастомных прав доступа """
+
+    class Meta:
+        model = Mailing
+        fields = ('is_published',)
+
+
 class MessageForm(StyleMixin, ModelForm):
 
     class Meta:
         model = Message
-        exclude = ('owner',)
+        exclude = ('owner', 'is_published', )
 
 
 class ClientForm(StyleMixin, ModelForm):
