@@ -1,5 +1,5 @@
 from django.forms import BooleanField, ModelForm
-
+from django import forms
 from mailing.models import Mailing, Message, Client
 
 
@@ -15,20 +15,40 @@ class StyleMixin:
 
 class MailingForm(StyleMixin, ModelForm):
 
+    # Добавляем отображение календаря при указании даты
+    date_of_first_dispatch = forms.DateTimeField(widget=forms.DateTimeInput(attrs={
+        'type': 'datetime-local',
+        'class': 'form-control'}),
+        label='Дата первой отправки',
+        required=True,
+        input_formats=['%Y-%m-%d', '%d-%m-%Y']
+        )
+    # Todo: отображать в форме только принадлежащие пользователю сообщения message_id и клиентов client_list
+
+    # message_id = Message.objects.filter(owner=)
+
     class Meta:
         model = Mailing
-        fields = "__all__"
+        exclude = ('owner',)
+
+
+class MailingManagerForm(StyleMixin, ModelForm):
+    """ Прописываем форму для кастомных прав доступа """
+
+    class Meta:
+        model = Mailing
+        fields = ('is_published',)
 
 
 class MessageForm(StyleMixin, ModelForm):
 
     class Meta:
         model = Message
-        fields = "__all__"
+        exclude = ('owner', 'is_published', )
 
 
 class ClientForm(StyleMixin, ModelForm):
 
     class Meta:
         model = Client
-        fields = "__all__"
+        exclude = ('owner',)
