@@ -1,0 +1,145 @@
+[
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$Fm4fbfMUynaG4kDFiQijcT$XJvk2JbIcZkSE6QoNaXUgVl9YXVq8Qnt2NH0VNLDjiE=",
+      "last_login": "2024-10-23T07:36:02Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "SkyPro",
+      "is_staff": true,
+      "date_joined": "2024-10-21T12:30:22Z",
+      "email": "admin@sky.pro",
+      "avatar": "",
+      "phone": null,
+      "country": null,
+      "token": null,
+      "is_active": true,
+      "groups": [
+        3
+      ],
+      "user_permissions": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12,
+        5,
+        6,
+        7,
+        8,
+        13,
+        14,
+        15,
+        16,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        33,
+        34,
+        35,
+        36,
+        29,
+        30,
+        31,
+        32,
+        21,
+        50,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        17,
+        18,
+        19,
+        20,
+        45,
+        49,
+        46,
+        47,
+        48
+      ]
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$u4t5bYacAVKDqwvATr0laA$IvyN0v8y8xqIKr3L5KU1KgYwVtDns7nndYPJmsKMyD8=",
+      "last_login": "2024-10-23T08:58:12.784Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "date_joined": "2024-10-21T13:38:09Z",
+      "email": "test1@sky.pro",
+      "avatar": "",
+      "phone": null,
+      "country": null,
+      "token": null,
+      "is_active": true,
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$MgpWtF4A4y42aC6zU6EQIi$O/atZhPPaVhYs++zglieOQ89wqd/iLJ4tL6iQOUqytI=",
+      "last_login": "2024-10-21T14:11:39.776Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "date_joined": "2024-10-21T14:08:04Z",
+      "email": "test2@sky.pro",
+      "avatar": "",
+      "phone": null,
+      "country": null,
+      "token": null,
+      "is_active": true,
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$FQ4fXh5O5i648qu0xCoKdO$CdqasySIpGyLplj/6g/2SHvx3VH1HZllo4GTVz9YouM=",
+      "last_login": "2024-10-22T18:41:17.062Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "date_joined": "2024-10-22T18:40:29.613Z",
+      "email": "parlamentsv@mail.ru",
+      "avatar": "",
+      "phone": null,
+      "country": null,
+      "token": "6fead195f3689e913643bc1b18db4635",
+      "is_active": true,
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  }
+]

@@ -67,7 +67,9 @@ class Mailing(models.Model):
         verbose_name = "Рассылка"
         verbose_name_plural = "Рассылки"
         ordering = ("status",)
-
+        permissions = [
+            ("Can_edit_status", "Can edit status"),
+        ]
 
 class Attempt(models.Model):
     """ Класс для модели Попытки """

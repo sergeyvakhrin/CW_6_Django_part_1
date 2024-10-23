@@ -3,14 +3,26 @@ import secrets
 from django.contrib.auth import logout
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.models import Group
+from django.core.exceptions import PermissionDenied
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, ListView, DetailView, DeleteView
 
 from config.settings import EMAIL_HOST_USER
-from users.forms import UserProfileForm, UserRegisterForm
+from users.forms import UserProfileForm, UserRegisterForm, UserManagerForm, UserForm
 from users.models import User
+
+
+class UsersListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
+    model = User
+    permission_required = 'users.view_user'
+
+
+class UsersDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
+    madel = User
+    permission_required = 'users.view_user'
 
 
 class RegisterView(CreateView):
@@ -24,6 +36,8 @@ class RegisterView(CreateView):
         user.is_active = False
         token = secrets.token_hex(16)
         user.token = token
+        # Присваиваем пользователю группу Пользователи
+        user.groups.add(Group.objects.get(name='usersmailing'))
         user.save()
         host = self.request.get_host()
         url = f'http://{host}/users/email-confirm/{token}/'
@@ -33,7 +47,6 @@ class RegisterView(CreateView):
             from_email=EMAIL_HOST_USER,
             recipient_list=[user.email]
         )
-
         return super().form_valid(form)
 
 def email_verification(request, token):
@@ -74,4 +87,13 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
+
+class UsersUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+    model = User
+    form_class = UserManagerForm
+
+
+class UsersDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    model = User
+    success_url = reverse_lazy('users:users_list')
 

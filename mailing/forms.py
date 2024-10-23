@@ -23,6 +23,9 @@ class MailingForm(StyleMixin, ModelForm):
         required=True,
         input_formats=['%Y-%m-%d', '%d-%m-%Y']
         )
+    # Todo: отображать в форме только принадлежащие пользователю сообщения message_id и клиентов client_list
+
+    # message_id = Message.objects.filter(owner=)
 
     class Meta:
         model = Mailing

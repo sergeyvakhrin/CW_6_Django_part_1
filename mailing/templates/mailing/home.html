@@ -30,6 +30,9 @@
             {% if perms.mailing.view_attempt %}
                 <a class="p-2 btn btn-outline-primary" href="/attempt/">Попытки рассылок</a>
             {% endif %}
+            {% if perms.users.view_user %}
+                <a class="p-2 btn btn-outline-primary" href="/usersmailing/">Пользователи</a>
+            {% endif %}
         {% endif %}
     </nav>
 </div>

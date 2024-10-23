@@ -6,7 +6,7 @@
         <div class="form-control text-center"> Сообщения </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for message in object_list %}
-            {% if message.owner == user %}
+            {% if message.owner == user or user.is_superuser %}
             <div class="col">
                 <div class="card shadow-sm">
 
