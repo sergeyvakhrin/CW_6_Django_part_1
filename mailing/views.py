@@ -27,6 +27,13 @@ class MailingCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
         mailing.save()
         return super().form_valid(form)
 
+    def get_form_kwargs(self):
+        """ Получаем доступ к queryset для фильтрации ManyToMany выводимых данных в форму создания рассылки списка клиентов client_lict
+        https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c"""
+        kwargs = super(MailingCreateView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
 
 class MailingUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Mailing
