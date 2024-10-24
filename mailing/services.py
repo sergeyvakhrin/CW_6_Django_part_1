@@ -7,6 +7,8 @@ from django.core.mail import send_mail
 
 from config.settings import EMAIL_HOST_USER
 from mailing.models import Attempt, Mailing
+from mailing.views import AttemptCreateView
+from users.models import User
 
 
 def get_mailings():
@@ -71,9 +73,9 @@ def do_send_mail(mailing_client_dict):
                 recipient_list=clients,
                 fail_silently=False,
             )
-            Attempt.objects.create(status=True, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id)) # Todo: добавит автоматическое подставление пользователя
+            Attempt.objects.create(status=True, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id), owner=mailing.owner)
         except smtplib.SMTPException as server_response:
-            Attempt.objects.create(status=False, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id)) # Todo: добавит автоматическое подставление пользователя
+            Attempt.objects.create(status=True, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id), owner=mailing.owner)
 
 
 def start():
