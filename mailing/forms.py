@@ -1,3 +1,4 @@
+from django.db import models
 from django.forms import BooleanField, ModelForm
 from django import forms
 from mailing.models import Mailing, Message, Client
@@ -13,7 +14,30 @@ class StyleMixin:
                 fild.widget.attrs['class'] = 'form-control'
 
 
+
+
+class CustomModelMultipleChoiceField(forms.ModelMultipleChoiceField):
+    """ Получаем доступ к queryset для фильтрации ManyToMany выводимых данных в форму создания рассылки списка клиентов client_lict
+    https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c"""
+    def label_from_instance(self, client_list):
+        return "%s" % client_list.email
+
+
+
+
 class MailingForm(StyleMixin, ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        """ Получаем доступ к queryset для фильтрации ManyToMany выводимых данных в форму создания рассылки списка клиентов client_lict
+        https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c"""
+        self.request = kwargs.pop('request')
+        super(MailingForm, self).__init__(*args, **kwargs)
+        self.fields['client_list'].queryset = Client.objects.filter(owner=self.request.user)
+        self.fields['message_id'].queryset = Message.objects.filter(owner=self.request.user)
+
+    # """ Получаем доступ к queryset для фильтрации ManyToMany выводимых данных в форму создания рассылки списка клиентов client_lict"""
+    # https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c
+    client_list = CustomModelMultipleChoiceField(queryset=None)
 
     # Добавляем отображение календаря при указании даты
     date_of_first_dispatch = forms.DateTimeField(widget=forms.DateTimeInput(attrs={
@@ -23,9 +47,6 @@ class MailingForm(StyleMixin, ModelForm):
         required=True,
         input_formats=['%Y-%m-%d', '%d-%m-%Y']
         )
-    # Todo: отображать в форме только принадлежащие пользователю сообщения message_id и клиентов client_list
-
-    # message_id = Message.objects.filter(owner=)
 
     class Meta:
         model = Mailing
