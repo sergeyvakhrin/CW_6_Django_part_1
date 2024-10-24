@@ -14,15 +14,11 @@ class StyleMixin:
                 fild.widget.attrs['class'] = 'form-control'
 
 
-
-
 class CustomModelMultipleChoiceField(forms.ModelMultipleChoiceField):
     """ Получаем доступ к queryset для фильтрации ManyToMany выводимых данных в форму создания рассылки списка клиентов client_lict
     https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c"""
     def label_from_instance(self, client_list):
         return "%s" % client_list.email
-
-
 
 
 class MailingForm(StyleMixin, ModelForm):
@@ -55,11 +51,9 @@ class MailingForm(StyleMixin, ModelForm):
 
 class MailingManagerForm(StyleMixin, ModelForm):
     """ Прописываем форму для кастомных прав доступа """
-
     class Meta:
         model = Mailing
         fields = ('is_published',)
-
 
 class MessageForm(StyleMixin, ModelForm):
 
@@ -69,6 +63,25 @@ class MessageForm(StyleMixin, ModelForm):
 
 
 class ClientForm(StyleMixin, ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        """ Получаем доступ к queryset для фильтрации выводимых данных в форму
+        Метод для проверки уникальности почт в списке клиентов у пользователя
+        https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c"""
+        self.request = kwargs.pop('request')
+        super(ClientForm, self).__init__(*args, **kwargs)
+
+    def clean_email(self):
+        """ Получаем доступ к queryset для фильтрации выводимых данных в форму
+        Метод для проверки уникальности почт в списке клиентов у пользователя
+        https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c"""
+        cleaned_data = self.cleaned_data['email']
+        client_list = Client.objects.filter(owner=self.request.user)
+        email_list = [client.email for client in client_list]
+        if cleaned_data in email_list:
+            raise forms.ValidationError('Клиент с такой почтой уже есть в Вашем списке клиентов')
+        return cleaned_data
+
 
     class Meta:
         model = Client

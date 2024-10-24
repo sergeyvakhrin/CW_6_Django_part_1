@@ -3,7 +3,7 @@
 {% block content %}
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
-        <div class="form-control text-center"> Сообщения </div>
+        <h1 class="display-4 text-center">Сообщения</h1>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for message in object_list %}
             {% if message.owner == user or user.is_superuser %}

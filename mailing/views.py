@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.exceptions import PermissionDenied
-from django.forms import inlineformset_factory
+from django.forms import inlineformset_factory, forms
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 
@@ -21,10 +21,11 @@ class MailingCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
 
     def form_valid(self, form):
         # Присваиваем объекту Рассылка в поле owner владельца автоматически
-        mailing = form.save()
-        user = self.request.user
-        mailing.owner = user
-        mailing.save()
+        # mailing = form.save()
+        # user = self.request.user
+        # mailing.owner = user
+        # mailing.save()
+        form.instance.owner = self.request.user  # так исключается одно обращение к базе
         return super().form_valid(form)
 
     def get_form_kwargs(self):
@@ -78,10 +79,11 @@ class MessageCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
     success_url = reverse_lazy('mailing:message_list',)
 
     def form_valid(self, form):
-        message = form.save()
-        user = self.request.user
-        message.owner = user
-        message.save()
+        # message = form.save()
+        # user = self.request.user
+        # message.owner = user
+        # message.save()
+        form.instance.owner = self.request.user  # так исключается одно обращение к базе
         return super().form_valid(form)
 
 
@@ -139,11 +141,20 @@ class ClientCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     success_url = reverse_lazy('mailing:client_list',)
 
     def form_valid(self, form):
-        client = form.save()
-        user = self.request.user
-        client.owner = user
-        client.save()
+        # client = form.save()
+        # user = self.request.user
+        # client.owner = user
+        # client.save()
+        form.instance.owner = self.request.user  # так исключается одно обращение к базе
         return super().form_valid(form)
+
+    def get_form_kwargs(self):
+        """ Получаем доступ к queryset для фильтрации выводимых данных в форму
+        Метод для проверки уникальности почт в списке клиентов у пользователя
+        https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c"""
+        kwargs = super(ClientCreateView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
 
 
 class ClientUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
@@ -179,8 +190,9 @@ class AttemptCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
     permission_required = 'mailing.create_attempt'
 
     def form_valid(self, form):
-        attempt = form.save()
-        user = self.request.user
-        attempt.owner = user
-        attempt.save()
+        # attempt = form.save()
+        # user = self.request.user
+        # attempt.owner = user
+        # attempt.save()
+        form.instance.owner = self.request.user  # так исключается одно обращение к базе
         return super().form_valid(form)
