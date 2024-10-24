@@ -75,7 +75,7 @@ def do_send_mail(mailing_client_dict):
             )
             Attempt.objects.create(status=True, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id), owner=mailing.owner)
         except smtplib.SMTPException as server_response:
-            Attempt.objects.create(status=True, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id), owner=mailing.owner)
+            Attempt.objects.create(status=False, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id), owner=mailing.owner)
 
 
 def start():
