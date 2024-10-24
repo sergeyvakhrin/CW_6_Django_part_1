@@ -20,6 +20,7 @@ class MailingCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
     success_url = reverse_lazy('mailing:mailing_list',)
 
     def form_valid(self, form):
+        # Присваиваем объекту Рассылка в поле owner владельца автоматически
         mailing = form.save()
         user = self.request.user
         mailing.owner = user
@@ -164,3 +165,15 @@ class AttemptListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
 class AttemptDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Attempt
     permission_required = 'mailing.view_attempt'
+
+
+class AttemptCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+    model = Attempt
+    permission_required = 'mailing.create_attempt'
+
+    def form_valid(self, form):
+        attempt = form.save()
+        user = self.request.user
+        attempt.owner = user
+        attempt.save()
+        return super().form_valid(form)
