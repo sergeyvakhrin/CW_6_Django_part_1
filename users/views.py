@@ -10,6 +10,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView, ListView, DetailView, DeleteView
 
+from blog.models import Blog
 from config.settings import EMAIL_HOST_USER
 from users.forms import UserProfileForm, UserRegisterForm, UserManagerForm, UserForm
 from users.models import User

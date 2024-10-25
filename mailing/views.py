@@ -1,9 +1,12 @@
+import random
+
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.forms import inlineformset_factory
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 
+from blog.models import Blog
 from mailing.forms import MailingForm, MessageForm, ClientForm, MailingManagerForm
 from mailing.models import Mailing, Message, Client, Attempt
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -11,6 +14,18 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 class MailingListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Mailing
     permission_required = 'mailing.view_mailing'
+
+    # def get_context_data(self, **kwargs):
+    #     blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
+    #     mailings = Mailing.objects.all()
+    #     mailings_is_published = Mailing.objects.filter(is_published=True)
+    #     clients = Client.objects.values('email').distinct()
+    #     context = super(MailingListView, self).get_context_data(**kwargs)
+    #     context['blog_list'] = blogs
+    #     context['mailings_list'] = mailings
+    #     context['mailings_is_published'] = mailings_is_published
+    #     context['clients_list'] = clients
+    #     return context
 
 
 class MailingCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
@@ -21,10 +36,11 @@ class MailingCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
 
     def form_valid(self, form):
         # Присваиваем объекту Рассылка в поле owner владельца автоматически
-        mailing = form.save()
-        user = self.request.user
-        mailing.owner = user
-        mailing.save()
+        # mailing = form.save()
+        # user = self.request.user
+        # mailing.owner = user
+        # mailing.save()
+        form.instance.owner = self.request.user  # так исключается одно обращение к базе
         return super().form_valid(form)
 
     def get_form_kwargs(self):
@@ -49,6 +65,11 @@ class MailingUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
             return MailingManagerForm
         raise PermissionDenied
 
+    def get_form_kwargs(self):
+        kwargs = super(MailingUpdateView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
 
 class MailingDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Mailing
@@ -63,7 +84,17 @@ class MailingDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView)
 ###################################################
 
 def home(request):
-    return render(request, 'mailing/home.html')
+    blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
+    mailings = Mailing.objects.all()
+    mailings_is_published = Mailing.objects.filter(is_published=True)
+    clients = Client.objects.values('email').distinct()
+    context = {
+        'blog_list': blogs,
+        'mailings_list': mailings,
+        'mailings_is_published': mailings_is_published,
+        'clients_list': clients
+        }
+    return render(request, 'mailing/home.html', context)
 
 
 class MessageListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
@@ -78,10 +109,11 @@ class MessageCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
     success_url = reverse_lazy('mailing:message_list',)
 
     def form_valid(self, form):
-        message = form.save()
-        user = self.request.user
-        message.owner = user
-        message.save()
+        # message = form.save()
+        # user = self.request.user
+        # message.owner = user
+        # message.save()
+        form.instance.owner = self.request.user  # так исключается одно обращение к базе
         return super().form_valid(form)
 
 
@@ -90,29 +122,29 @@ class MessageUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
     form_class = MessageForm
     permission_required = 'mailing.change_message'
 
-    def get_context_data(self, *args, **kwargs):
-        context_data = super().get_context_data(*args, **kwargs)
-        MessageFormset = inlineformset_factory(Message, Mailing, MailingForm, extra=1)
-        if self.request.method == "POST":
-            context_data['formset'] = MessageFormset(self.request.POST, instance=self.object)
-        else:
-            context_data['formset'] = MessageFormset()
-        return context_data
-
-    def form_valid(self, form):
-        context_data = self.get_context_data()
-        formset = context_data['formset']
-        if form.is_valid() and formset.is_valid():
-            self.object = form.save()
-            formset.instance = self.object
-            formset.save()
-            return super().form_valid(form)
-        else:
-            return self.render_to_response(self.get_context_data(form=form, formset=formset))
+    # Для вывода двух форм одновременно
+    # def get_context_data(self, *args, **kwargs):
+    #     context_data = super().get_context_data(*args, **kwargs)
+    #     MessageFormset = inlineformset_factory(Message, Mailing, MailingForm, extra=1)
+    #     if self.request.method == "POST":
+    #         context_data['formset'] = MessageFormset(self.request.POST, instance=self.object)
+    #     else:
+    #         context_data['formset'] = MessageFormset()
+    #     return context_data
+    #
+    # def form_valid(self, form):
+    #     context_data = self.get_context_data()
+    #     formset = context_data['formset']
+    #     if form.is_valid() and formset.is_valid():
+    #         self.object = form.save()
+    #         formset.instance = self.object
+    #         formset.save()
+    #         return super().form_valid(form)
+    #     else:
+    #         return self.render_to_response(self.get_context_data(form=form, formset=formset))
 
     def get_success_url(self):
         return reverse('mailing:message_detail', args=[self.kwargs.get('pk')])
-
 
 
 class MessageDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
@@ -139,11 +171,20 @@ class ClientCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     success_url = reverse_lazy('mailing:client_list',)
 
     def form_valid(self, form):
-        client = form.save()
-        user = self.request.user
-        client.owner = user
-        client.save()
+        # client = form.save()
+        # user = self.request.user
+        # client.owner = user
+        # client.save()
+        form.instance.owner = self.request.user  # так исключается одно обращение к базе
         return super().form_valid(form)
+
+    def get_form_kwargs(self):
+        """ Получаем доступ к queryset для фильтрации выводимых данных в форму
+        Метод для проверки уникальности почт в списке клиентов у пользователя
+        https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c"""
+        kwargs = super(ClientCreateView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
 
 
 class ClientUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
@@ -151,6 +192,12 @@ class ClientUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     form_class = ClientForm
     permission_required = 'mailing.change_client'
     success_url = reverse_lazy('mailing:client_list', )
+
+    def get_form_kwargs(self):
+        kwargs = super(ClientUpdateView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
 
 class ClientDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Client
@@ -179,8 +226,9 @@ class AttemptCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView)
     permission_required = 'mailing.create_attempt'
 
     def form_valid(self, form):
-        attempt = form.save()
-        user = self.request.user
-        attempt.owner = user
-        attempt.save()
+        # attempt = form.save()
+        # user = self.request.user
+        # attempt.owner = user
+        # attempt.save()
+        form.instance.owner = self.request.user  # так исключается одно обращение к базе
         return super().form_valid(form)
