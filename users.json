@@ -4,7 +4,7 @@
     "pk": 2,
     "fields": {
       "password": "pbkdf2_sha256$720000$Fm4fbfMUynaG4kDFiQijcT$XJvk2JbIcZkSE6QoNaXUgVl9YXVq8Qnt2NH0VNLDjiE=",
-      "last_login": "2024-10-24T07:35:58.021Z",
+      "last_login": "2024-10-25T11:12:12.315Z",
       "is_superuser": true,
       "first_name": "Admin",
       "last_name": "SkyPro",
@@ -78,7 +78,7 @@
     "pk": 3,
     "fields": {
       "password": "pbkdf2_sha256$720000$u4t5bYacAVKDqwvATr0laA$IvyN0v8y8xqIKr3L5KU1KgYwVtDns7nndYPJmsKMyD8=",
-      "last_login": "2024-10-24T08:48:59.819Z",
+      "last_login": "2024-10-25T11:07:30.140Z",
       "is_superuser": false,
       "first_name": "Сергей",
       "last_name": "Сергеев",
@@ -101,7 +101,7 @@
     "pk": 4,
     "fields": {
       "password": "pbkdf2_sha256$720000$MgpWtF4A4y42aC6zU6EQIi$O/atZhPPaVhYs++zglieOQ89wqd/iLJ4tL6iQOUqytI=",
-      "last_login": "2024-10-24T10:21:38.019Z",
+      "last_login": "2024-10-25T11:07:42.281Z",
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
@@ -124,11 +124,11 @@
     "pk": 11,
     "fields": {
       "password": "pbkdf2_sha256$720000$jg42NA42e7w0V6xbgcvL08$+u+e4lhDTk6l/2ncROKZmSeYbM0YEDz0maS7jry02JE=",
-      "last_login": "2024-10-24T08:49:33Z",
+      "last_login": "2024-10-25T09:38:35.033Z",
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
-      "is_staff": false,
+      "is_staff": true,
       "date_joined": "2024-10-23T12:52:29Z",
       "email": "parlamentsv@mail.ru",
       "avatar": "",
@@ -137,7 +137,7 @@
       "token": "20cc495af51f66ff594a060954b61936",
       "is_active": true,
       "groups": [
-        2
+        4
       ],
       "user_permissions": []
     }
