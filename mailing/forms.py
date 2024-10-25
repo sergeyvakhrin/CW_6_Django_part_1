@@ -51,6 +51,12 @@ class MailingForm(StyleMixin, ModelForm):
 
 class MailingManagerForm(StyleMixin, ModelForm):
     """ Прописываем форму для кастомных прав доступа """
+    def __init__(self, *args, **kwargs):
+        """ Получаем доступ к queryset для фильтрации ManyToMany выводимых данных в форму создания рассылки списка клиентов client_lict
+        https://medium.com/analytics-vidhya/django-how-to-pass-the-user-object-into-form-classes-ee322f02948c"""
+        self.request = kwargs.pop('request')
+        super(MailingManagerForm, self).__init__(*args, **kwargs)
+
     class Meta:
         model = Mailing
         fields = ('is_published',)

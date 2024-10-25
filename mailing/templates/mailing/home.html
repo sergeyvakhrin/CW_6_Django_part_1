@@ -39,8 +39,11 @@
 </div>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Рассылки</h1>
-    <p class="lead">Сервис рассылок - это отличный вариант информирования ваших клиентов</p>
+    {% if request.path == "/" %}
+        <h1 class="display-4">Рассылки</h1>
+        <p class="lead">Сервис рассылок - это отличный вариант информирования ваших клиентов</p>
+        <p class="lead">Количество рассылок всего: {{ mailings_list.count }}, Kоличество активных рассылок: {{ mailings_is_published.count }}, Kоличество уникальных клиентов для рассылок: {{ clients_list.count }} </p>
+    {% endif %}
     {% if user.is_authenticated %}
         {% if perms.mailing.add_message %}
             <a class="btn btn-primary" href="{% url 'mailing:message_create' %}" role="button">Создать Сообщение</a>
@@ -58,6 +61,7 @@
 {% endblock %}
 
 <div class="album py-5 bg-body-tertiary">
+    {% if request.path == "/" %}
     <div class="container">
         <div class="form-control text-center"> Блог </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -79,9 +83,9 @@
                 </div>
             </div>
             {% endfor %}
-
-        </div>
+            </div>
     </div>
+    {% endif %}
 </div>
 
 <footer class="pt-4 my-md-5 pt-md-5 border-top">

@@ -15,11 +15,17 @@ class MailingListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Mailing
     permission_required = 'mailing.view_mailing'
 
-    def get_context_data(self, **kwargs):
-        blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
-        context = super(MailingListView, self).get_context_data(**kwargs)
-        context['blog_list'] = blogs
-        return context
+    # def get_context_data(self, **kwargs):
+    #     blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
+    #     mailings = Mailing.objects.all()
+    #     mailings_is_published = Mailing.objects.filter(is_published=True)
+    #     clients = Client.objects.values('email').distinct()
+    #     context = super(MailingListView, self).get_context_data(**kwargs)
+    #     context['blog_list'] = blogs
+    #     context['mailings_list'] = mailings
+    #     context['mailings_is_published'] = mailings_is_published
+    #     context['clients_list'] = clients
+    #     return context
 
 
 class MailingCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
@@ -79,19 +85,21 @@ class MailingDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView)
 
 def home(request):
     blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
-    contex = {'blog_list': blogs}
-    return render(request, 'mailing/home.html', contex)
+    mailings = Mailing.objects.all()
+    mailings_is_published = Mailing.objects.filter(is_published=True)
+    clients = Client.objects.values('email').distinct()
+    context = {
+        'blog_list': blogs,
+        'mailings_list': mailings,
+        'mailings_is_published': mailings_is_published,
+        'clients_list': clients
+        }
+    return render(request, 'mailing/home.html', context)
 
 
 class MessageListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Message
     permission_required = 'mailing.view_message'
-
-    def get_context_data(self, **kwargs):
-        blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
-        context = super(MessageListView, self).get_context_data(**kwargs)
-        context['blog_list'] = blogs
-        return context
 
 
 class MessageCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
@@ -155,12 +163,6 @@ class ClientListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Client
     permission_required = 'mailing.view_client'
 
-    def get_context_data(self, **kwargs):
-        blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
-        context = super(ClientListView, self).get_context_data(**kwargs)
-        context['blog_list'] = blogs
-        return context
-
 
 class ClientCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Client
@@ -212,12 +214,6 @@ class ClientDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
 class AttemptListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Attempt
     permission_required = 'mailing.view_attempt'
-
-    def get_context_data(self, **kwargs):
-        blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
-        context = super(AttemptListView, self).get_context_data(**kwargs)
-        context['blog_list'] = blogs
-        return context
 
 
 class AttemptDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):

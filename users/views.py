@@ -20,12 +20,6 @@ class UserListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = User
     permission_required = 'users.view_user'
 
-    def get_context_data(self, **kwargs):
-        blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
-        context = super(UserListView, self).get_context_data(**kwargs)
-        context['blog_list'] = blogs
-        return context
-
 
 class UserDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = User
