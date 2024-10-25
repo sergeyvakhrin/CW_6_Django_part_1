@@ -1,4 +1,5 @@
 {% load static %}
+{% load my_tags %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -55,6 +56,33 @@
 
 {% block content %}
 {% endblock %}
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="form-control text-center"> Блог </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            {% for object in blog_list %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="{{ object.image | media_filter }}">
+                    <div class="card-body">
+                        <p class="card-text">Тема: {{ object.title }}</p>
+                        <p class="card-text">Статус: {{ object.post | slice:":100" }}</p>
+                        <p class="card-text">Кол-во просмотров: {{ object.views_count }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a class="btn btn-primary" href="{% url 'blog:blog_detail' object.pk %}" role="button">Посмотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
 
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">

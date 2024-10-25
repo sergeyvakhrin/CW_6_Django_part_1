@@ -10,6 +10,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView, ListView, DetailView, DeleteView
 
+from blog.models import Blog
 from config.settings import EMAIL_HOST_USER
 from users.forms import UserProfileForm, UserRegisterForm, UserManagerForm, UserForm
 from users.models import User
@@ -18,6 +19,12 @@ from users.models import User
 class UserListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = User
     permission_required = 'users.view_user'
+
+    def get_context_data(self, **kwargs):
+        blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
+        context = super(UserListView, self).get_context_data(**kwargs)
+        context['blog_list'] = blogs
+        return context
 
 
 class UserDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
