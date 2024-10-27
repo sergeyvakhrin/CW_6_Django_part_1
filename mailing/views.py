@@ -90,7 +90,7 @@ def home(request):
 
     # Низкоуровневое кеширование данных на Главной странице
     if settings.CACHE_ENABLED:
-        key_blogs = f'key_blogs_{Blog.objects.filter(is_published=True).order_by('?')}'
+        key_blogs = f'key_blogs_{Blog.objects.filter(is_published=True)}'
         key_mailings = f'key_mailings_{Mailing.objects.all()}'
         key_mailings_is_published = f'key_mailings_is_published_{Mailing.objects.filter(is_published=True)}'
         key_clients = f'key_clients_{Client.objects.values('email').distinct()}'
@@ -102,7 +102,7 @@ def home(request):
         clients = cache.get(key_clients)
 
         if blogs is None or mailings is None or mailings_is_published is None or clients is None:
-            blogs = Blog.objects.filter(is_published=True).order_by('?')
+            blogs = Blog.objects.filter(is_published=True)
             mailings = Mailing.objects.all()
             mailings_is_published = Mailing.objects.filter(is_published=True)
             clients = Client.objects.values('email').distinct()
@@ -115,17 +115,17 @@ def home(request):
 
     else:
         # Если кеширование выключено, получаем данные с базы
-        blogs = Blog.objects.filter(is_published=True).order_by('?')
+        blogs = Blog.objects.filter(is_published=True)
         mailings = Mailing.objects.all()
         mailings_is_published = Mailing.objects.filter(is_published=True)
         clients = Client.objects.values('email').distinct()
 
-    # blogs = Blog.objects.filter(is_published=True).order_by('?')
+    # blogs = Blog.objects.filter(is_published=True)
     # mailings = Mailing.objects.all()
     # mailings_is_published = Mailing.objects.filter(is_published=True)
     # clients = Client.objects.values('email').distinct()
     context = {
-        'blog_list': blogs[:3],
+        'blog_list': blogs.order_by('?')[:3],
         'mailings_list': mailings,
         'mailings_is_published': mailings_is_published,
         'clients_list': clients
