@@ -4730,26 +4730,18 @@
   },
   {
     "model": "sessions.session",
-    "pk": "1w0hoe9hak76yyib1mo9gdi1s1pl44ib",
-    "fields": {
-      "session_data": ".eJxVjDsOwjAQBe_iGlnxNxtKes5grbO7JIBsKU4qxN0hUgpo38y8l0q4rVPaGi9pJnVWVp1-t4zjg8sO6I7lVvVYy7rMWe-KPmjT10r8vBzu38GEbfrWAzsWQKJoO8dIXpggII7sJYfOEGGGXlxvBm8k9gxWhsCeogRxAOr9ASJ9ORI:1t3sNy:iDOEZWYS3z-BfQf1ptjG6459BO2OuongaB69fO4uxww",
-      "expire_date": "2024-11-07T07:35:58.023Z"
-    }
-  },
-  {
-    "model": "sessions.session",
-    "pk": "42vrh0xfrl84fvpqvz0908s8quyqhk5s",
-    "fields": {
-      "session_data": ".eJxVjDsOwjAQBe_iGlnxNxtKes5grbO7JIBsKU4qxN0hUgpo38y8l0q4rVPaGi9pJnVWVp1-t4zjg8sO6I7lVvVYy7rMWe-KPmjT10r8vBzu38GEbfrWAzsWQKJoO8dIXpggII7sJYfOEGGGXlxvBm8k9gxWhsCeogRxAOr9ASJ9ORI:1t4IEm:rfJ_Bc2L2hzOyrmGBgliYx8TluwK4B_-PveiybFHVoo",
-      "expire_date": "2024-11-08T11:12:12.318Z"
-    }
-  },
-  {
-    "model": "sessions.session",
     "pk": "h1k8bru8308icblpnpeoxpk7bvusgfyv",
     "fields": {
       "session_data": ".eJxVjDsOwjAQBe_iGlnxNxtKes5grbO7JIBsKU4qxN0hUgpo38y8l0q4rVPaGi9pJnVWVp1-t4zjg8sO6I7lVvVYy7rMWe-KPmjT10r8vBzu38GEbfrWAzsWQKJoO8dIXpggII7sJYfOEGGGXlxvBm8k9gxWhsCeogRxAOr9ASJ9ORI:1t410E:BJLsqJiObNlduPtWvBsMqrBBfuBuCosPhsItLpqfg4c",
       "expire_date": "2024-11-07T16:48:02.908Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "u669cii6wolhuh1koy77dzjcoj10ei7m",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGlnxNxtKes5grbO7JIBsKU4qxN0hUgpo38y8l0q4rVPaGi9pJnVWVp1-t4zjg8sO6I7lVvVYy7rMWe-KPmjT10r8vBzu38GEbfrWAzsWQKJoO8dIXpggII7sJYfOEGGGXlxvBm8k9gxWhsCeogRxAOr9ASJ9ORI:1t4MBH:SViV1k0NF4AqMB5yLJFtJehJe6A0hwB96VWqZvam-do",
+      "expire_date": "2024-11-08T15:24:51.204Z"
     }
   },
   {
@@ -5162,7 +5154,7 @@
     "pk": 2,
     "fields": {
       "password": "pbkdf2_sha256$720000$Fm4fbfMUynaG4kDFiQijcT$XJvk2JbIcZkSE6QoNaXUgVl9YXVq8Qnt2NH0VNLDjiE=",
-      "last_login": "2024-10-25T11:12:12.315Z",
+      "last_login": "2024-10-27T06:46:00.991Z",
       "is_superuser": true,
       "first_name": "Admin",
       "last_name": "SkyPro",
@@ -5282,7 +5274,7 @@
     "pk": 11,
     "fields": {
       "password": "pbkdf2_sha256$720000$jg42NA42e7w0V6xbgcvL08$+u+e4lhDTk6l/2ncROKZmSeYbM0YEDz0maS7jry02JE=",
-      "last_login": "2024-10-25T09:38:35.033Z",
+      "last_login": "2024-10-25T14:41:03.940Z",
       "is_superuser": false,
       "first_name": "",
       "last_name": "",

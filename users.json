@@ -4,7 +4,7 @@
     "pk": 2,
     "fields": {
       "password": "pbkdf2_sha256$720000$Fm4fbfMUynaG4kDFiQijcT$XJvk2JbIcZkSE6QoNaXUgVl9YXVq8Qnt2NH0VNLDjiE=",
-      "last_login": "2024-10-25T11:12:12.315Z",
+      "last_login": "2024-10-27T06:46:00.991Z",
       "is_superuser": true,
       "first_name": "Admin",
       "last_name": "SkyPro",
@@ -124,7 +124,7 @@
     "pk": 11,
     "fields": {
       "password": "pbkdf2_sha256$720000$jg42NA42e7w0V6xbgcvL08$+u+e4lhDTk6l/2ncROKZmSeYbM0YEDz0maS7jry02JE=",
-      "last_login": "2024-10-25T09:38:35.033Z",
+      "last_login": "2024-10-25T14:41:03.940Z",
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
