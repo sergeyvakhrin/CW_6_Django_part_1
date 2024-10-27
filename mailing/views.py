@@ -1,12 +1,15 @@
 import random
 
+
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
 from django.forms import inlineformset_factory
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 
 from blog.models import Blog
+from config import settings
 from mailing.forms import MailingForm, MessageForm, ClientForm, MailingManagerForm
 from mailing.models import Mailing, Message, Client, Attempt
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -84,12 +87,45 @@ class MailingDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView)
 ###################################################
 
 def home(request):
-    blogs = Blog.objects.filter(is_published=True).order_by('?')[:3]
-    mailings = Mailing.objects.all()
-    mailings_is_published = Mailing.objects.filter(is_published=True)
-    clients = Client.objects.values('email').distinct()
+
+    # Низкоуровневое кеширование данных на Главной странице
+    if settings.CACHE_ENABLED:
+        key_blogs = f'key_blogs_{Blog.objects.filter(is_published=True).order_by('?')}'
+        key_mailings = f'key_mailings_{Mailing.objects.all()}'
+        key_mailings_is_published = f'key_mailings_is_published_{Mailing.objects.filter(is_published=True)}'
+        key_clients = f'key_clients_{Client.objects.values('email').distinct()}'
+
+        # Получаем данные по ключу
+        blogs = cache.get(key_blogs)
+        mailings = cache.get(key_mailings)
+        mailings_is_published = cache.get(key_mailings_is_published)
+        clients = cache.get(key_clients)
+
+        if blogs is None or mailings is None or mailings_is_published is None or clients is None:
+            blogs = Blog.objects.filter(is_published=True).order_by('?')
+            mailings = Mailing.objects.all()
+            mailings_is_published = Mailing.objects.filter(is_published=True)
+            clients = Client.objects.values('email').distinct()
+
+            # Записываем данные с ключем
+            cache.set(key_blogs, blogs)
+            cache.set(key_mailings, mailings)
+            cache.set(key_mailings_is_published, mailings_is_published)
+            cache.set(key_clients, clients)
+
+    else:
+        # Если кеширование выключено, получаем данные с базы
+        blogs = Blog.objects.filter(is_published=True).order_by('?')
+        mailings = Mailing.objects.all()
+        mailings_is_published = Mailing.objects.filter(is_published=True)
+        clients = Client.objects.values('email').distinct()
+
+    # blogs = Blog.objects.filter(is_published=True).order_by('?')
+    # mailings = Mailing.objects.all()
+    # mailings_is_published = Mailing.objects.filter(is_published=True)
+    # clients = Client.objects.values('email').distinct()
     context = {
-        'blog_list': blogs,
+        'blog_list': blogs[:3],
         'mailings_list': mailings,
         'mailings_is_published': mailings_is_published,
         'clients_list': clients

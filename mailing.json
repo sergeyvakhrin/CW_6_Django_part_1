@@ -3601,6 +3601,422 @@
     }
   },
   {
+    "model": "admin.logentry",
+    "pk": 278,
+    "fields": {
+      "action_time": "2024-10-24T15:51:23.745Z",
+      "user": 2,
+      "content_type": 3,
+      "object_id": "4",
+      "object_repr": "content-manager",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 279,
+    "fields": {
+      "action_time": "2024-10-24T15:51:44.017Z",
+      "user": 2,
+      "content_type": 12,
+      "object_id": "11",
+      "object_repr": "parlamentsv@mail.ru",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Groups\", \"Staff status\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 280,
+    "fields": {
+      "action_time": "2024-10-24T15:52:26.018Z",
+      "user": 11,
+      "content_type": 13,
+      "object_id": "1",
+      "object_repr": "Заголовок 1",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 281,
+    "fields": {
+      "action_time": "2024-10-24T15:52:42.553Z",
+      "user": 11,
+      "content_type": 13,
+      "object_id": "1",
+      "object_repr": "Заголовок 1",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 282,
+    "fields": {
+      "action_time": "2024-10-24T18:11:22.119Z",
+      "user": 2,
+      "content_type": 13,
+      "object_id": "2",
+      "object_repr": "Заголовок 2",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 283,
+    "fields": {
+      "action_time": "2024-10-24T18:11:29.727Z",
+      "user": 2,
+      "content_type": 13,
+      "object_id": "3",
+      "object_repr": "Заголовок 3",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 284,
+    "fields": {
+      "action_time": "2024-10-24T18:11:37.606Z",
+      "user": 2,
+      "content_type": 13,
+      "object_id": "4",
+      "object_repr": "Заголовок 4",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 285,
+    "fields": {
+      "action_time": "2024-10-25T06:48:08.512Z",
+      "user": 2,
+      "content_type": 13,
+      "object_id": "1",
+      "object_repr": "Блог 1",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 286,
+    "fields": {
+      "action_time": "2024-10-25T06:48:14.080Z",
+      "user": 2,
+      "content_type": 13,
+      "object_id": "2",
+      "object_repr": "Блог 2",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 287,
+    "fields": {
+      "action_time": "2024-10-25T06:48:19.418Z",
+      "user": 2,
+      "content_type": 13,
+      "object_id": "3",
+      "object_repr": "Блог 3",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 288,
+    "fields": {
+      "action_time": "2024-10-25T06:48:25.228Z",
+      "user": 2,
+      "content_type": 13,
+      "object_id": "4",
+      "object_repr": "Блог 4",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 289,
+    "fields": {
+      "action_time": "2024-10-25T06:48:34.009Z",
+      "user": 2,
+      "content_type": 13,
+      "object_id": "5",
+      "object_repr": "Блог 5",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 290,
+    "fields": {
+      "action_time": "2024-10-25T06:48:59.257Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "Сообщение 1",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 291,
+    "fields": {
+      "action_time": "2024-10-25T06:49:05.537Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "3",
+      "object_repr": "Сообщение тест2",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 292,
+    "fields": {
+      "action_time": "2024-10-25T06:49:12.344Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "Сообщение Первая Рассылка",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 293,
+    "fields": {
+      "action_time": "2024-10-25T06:49:17.623Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "5",
+      "object_repr": "Сообщение Рассылка",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 294,
+    "fields": {
+      "action_time": "2024-10-25T06:49:24.904Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "6",
+      "object_repr": "Сообщение Parlament",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 295,
+    "fields": {
+      "action_time": "2024-10-25T06:49:31.621Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "8",
+      "object_repr": "Сообщение 11 parlamentsv",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 296,
+    "fields": {
+      "action_time": "2024-10-25T06:49:37.402Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "7",
+      "object_repr": "Сообщение test2",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 297,
+    "fields": {
+      "action_time": "2024-10-25T06:49:42.980Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "10",
+      "object_repr": "Сообщение 111 тест2",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 298,
+    "fields": {
+      "action_time": "2024-10-25T06:49:48.515Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "9",
+      "object_repr": "Сообщение 222 parlamentsv",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 299,
+    "fields": {
+      "action_time": "2024-10-25T06:49:57.899Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "5",
+      "object_repr": "Сообщение 3333",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 300,
+    "fields": {
+      "action_time": "2024-10-25T06:50:05.237Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "4",
+      "object_repr": "Сообщение 444",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 301,
+    "fields": {
+      "action_time": "2024-10-25T06:50:20.839Z",
+      "user": 2,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "Сообщение Первая",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 302,
+    "fields": {
+      "action_time": "2024-10-25T08:17:27.782Z",
+      "user": 2,
+      "content_type": 3,
+      "object_id": "3",
+      "object_repr": "admin",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 303,
+    "fields": {
+      "action_time": "2024-10-25T08:17:41.512Z",
+      "user": 2,
+      "content_type": 3,
+      "object_id": "3",
+      "object_repr": "admin",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 304,
+    "fields": {
+      "action_time": "2024-10-25T09:38:53.893Z",
+      "user": 11,
+      "content_type": 13,
+      "object_id": "1",
+      "object_repr": "Блог 1",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 305,
+    "fields": {
+      "action_time": "2024-10-25T09:39:10.417Z",
+      "user": 11,
+      "content_type": 13,
+      "object_id": "2",
+      "object_repr": "Блог 2",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 306,
+    "fields": {
+      "action_time": "2024-10-25T09:40:09.811Z",
+      "user": 11,
+      "content_type": 13,
+      "object_id": "3",
+      "object_repr": "Блог 3",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 307,
+    "fields": {
+      "action_time": "2024-10-25T09:40:26.431Z",
+      "user": 11,
+      "content_type": 13,
+      "object_id": "4",
+      "object_repr": "Блог 4",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 308,
+    "fields": {
+      "action_time": "2024-10-25T09:40:33.357Z",
+      "user": 11,
+      "content_type": 13,
+      "object_id": "5",
+      "object_repr": "Блог 5",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 309,
+    "fields": {
+      "action_time": "2024-10-25T10:41:44.104Z",
+      "user": 2,
+      "content_type": 6,
+      "object_id": "16",
+      "object_repr": "Сообщение тест2",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\"]}}]"
+    }
+  },
+  {
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -4060,6 +4476,42 @@
     }
   },
   {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can add Статья",
+      "content_type": 13,
+      "codename": "add_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can change Статья",
+      "content_type": 13,
+      "codename": "change_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can delete Статья",
+      "content_type": 13,
+      "codename": "delete_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can view Статья",
+      "content_type": 13,
+      "codename": "view_blog"
+    }
+  },
+  {
     "model": "auth.group",
     "pk": 1,
     "fields": {
@@ -4114,6 +4566,10 @@
         6,
         7,
         8,
+        52,
+        53,
+        54,
+        55,
         13,
         14,
         15,
@@ -4136,6 +4592,7 @@
         32,
         21,
         50,
+        51,
         22,
         23,
         24,
@@ -4148,10 +4605,22 @@
         19,
         20,
         45,
-        49,
         46,
         47,
         48
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 4,
+    "fields": {
+      "name": "content-manager",
+      "permissions": [
+        52,
+        53,
+        54,
+        55
       ]
     }
   },
@@ -4252,11 +4721,27 @@
     }
   },
   {
-    "model": "sessions.session",
-    "pk": "1w0hoe9hak76yyib1mo9gdi1s1pl44ib",
+    "model": "contenttypes.contenttype",
+    "pk": 13,
     "fields": {
-      "session_data": ".eJxVjDsOwjAQBe_iGlnxNxtKes5grbO7JIBsKU4qxN0hUgpo38y8l0q4rVPaGi9pJnVWVp1-t4zjg8sO6I7lVvVYy7rMWe-KPmjT10r8vBzu38GEbfrWAzsWQKJoO8dIXpggII7sJYfOEGGGXlxvBm8k9gxWhsCeogRxAOr9ASJ9ORI:1t3sNy:iDOEZWYS3z-BfQf1ptjG6459BO2OuongaB69fO4uxww",
-      "expire_date": "2024-11-07T07:35:58.023Z"
+      "app_label": "blog",
+      "model": "blog"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "h1k8bru8308icblpnpeoxpk7bvusgfyv",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGlnxNxtKes5grbO7JIBsKU4qxN0hUgpo38y8l0q4rVPaGi9pJnVWVp1-t4zjg8sO6I7lVvVYy7rMWe-KPmjT10r8vBzu38GEbfrWAzsWQKJoO8dIXpggII7sJYfOEGGGXlxvBm8k9gxWhsCeogRxAOr9ASJ9ORI:1t410E:BJLsqJiObNlduPtWvBsMqrBBfuBuCosPhsItLpqfg4c",
+      "expire_date": "2024-11-07T16:48:02.908Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "u669cii6wolhuh1koy77dzjcoj10ei7m",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGlnxNxtKes5grbO7JIBsKU4qxN0hUgpo38y8l0q4rVPaGi9pJnVWVp1-t4zjg8sO6I7lVvVYy7rMWe-KPmjT10r8vBzu38GEbfrWAzsWQKJoO8dIXpggII7sJYfOEGGGXlxvBm8k9gxWhsCeogRxAOr9ASJ9ORI:1t4MBH:SViV1k0NF4AqMB5yLJFtJehJe6A0hwB96VWqZvam-do",
+      "expire_date": "2024-11-08T15:24:51.204Z"
     }
   },
   {
@@ -4271,11 +4756,11 @@
     "model": "mailing.message",
     "pk": 1,
     "fields": {
-      "title": "Первая Рассылка",
+      "title": "Сообщение Первая",
       "message": "Это самая первая рассылка",
       "image": "",
       "created_at": "2024-09-28T12:55:08.943Z",
-      "update_at": "2024-10-22T17:10:00.462Z",
+      "update_at": "2024-10-25T06:50:20.837Z",
       "owner": 2
     }
   },
@@ -4283,11 +4768,11 @@
     "model": "mailing.message",
     "pk": 2,
     "fields": {
-      "title": "Вторая рассылка",
+      "title": "Сообщение 1",
       "message": "Это вторая рассылка",
       "image": "",
       "created_at": "2024-09-28T12:55:08.943Z",
-      "update_at": "2024-10-22T17:09:41.346Z",
+      "update_at": "2024-10-25T06:48:59.255Z",
       "owner": 3
     }
   },
@@ -4295,11 +4780,11 @@
     "model": "mailing.message",
     "pk": 3,
     "fields": {
-      "title": "Заголовок тест2",
+      "title": "Сообщение тест2",
       "message": "Сообщение туст2",
       "image": "",
       "created_at": "2024-09-28T12:55:08.943Z",
-      "update_at": "2024-10-24T08:44:08.182Z",
+      "update_at": "2024-10-25T06:49:05.535Z",
       "owner": 4
     }
   },
@@ -4307,11 +4792,11 @@
     "model": "mailing.message",
     "pk": 4,
     "fields": {
-      "title": "Четвертая Рассылка",
+      "title": "Сообщение 444",
       "message": "После создания новой рассылки, если текущие дата и время больше даты и времени начала и меньше даты и времени окончания, должны быть выбраны из справочника все клиенты, которые указаны в настройках рассылки и запущена отправка для всех этих клиентов.\r\nЕсли создается рассылка с временем старта в будущем, отправка должна стартовать автоматически по наступлению этого времени без дополнительных действий со стороны пользователя сервиса.\r\nПо ходу отправки рассылки должна собираться статистика (см. описание сущностей «Рассылка» и «Попытка» выше) по каждой рассылке для последующего формирования отчетов. Попытка создается одна для одной рассылки. Формировать попытки рассылки для всех клиентов отдельно не нужно.\r\nВнешний сервис, который принимает отправляемые сообщения, может долго обрабатывать запрос, отвечать некорректными данными, на какое-то время вообще не принимать запросы. Нужна корректная обработка подобных ошибок. Проблемы с внешним сервисом не должны влиять на стабильность работы разрабатываемого сервиса рассылок.",
       "image": "",
       "created_at": "2024-09-28T12:55:08.943Z",
-      "update_at": "2024-10-22T17:10:07.193Z",
+      "update_at": "2024-10-25T06:50:05.234Z",
       "owner": 3
     }
   },
@@ -4319,11 +4804,11 @@
     "model": "mailing.message",
     "pk": 5,
     "fields": {
-      "title": "Рассылка",
+      "title": "Сообщение 3333",
       "message": "111111111",
       "image": "",
       "created_at": "2024-10-22T17:31:51.249Z",
-      "update_at": "2024-10-22T17:31:51.255Z",
+      "update_at": "2024-10-25T06:49:57.898Z",
       "owner": 3
     }
   },
@@ -4331,11 +4816,11 @@
     "model": "mailing.message",
     "pk": 6,
     "fields": {
-      "title": "Рассылка Parlament",
+      "title": "Сообщение Parlament",
       "message": "Это первая рассылка ParlamentSV",
       "image": "",
       "created_at": "2024-10-22T18:44:54.398Z",
-      "update_at": "2024-10-22T18:44:54.404Z",
+      "update_at": "2024-10-25T06:49:24.903Z",
       "owner": null
     }
   },
@@ -4343,11 +4828,11 @@
     "model": "mailing.message",
     "pk": 7,
     "fields": {
-      "title": "Рассылка test2",
+      "title": "Сообщение test2",
       "message": "test2",
       "image": "",
       "created_at": "2024-10-24T07:25:30.298Z",
-      "update_at": "2024-10-24T07:25:30.304Z",
+      "update_at": "2024-10-25T06:49:37.400Z",
       "owner": 4
     }
   },
@@ -4355,11 +4840,11 @@
     "model": "mailing.message",
     "pk": 8,
     "fields": {
-      "title": "Рассылка parlamentsv",
+      "title": "Сообщение 11 parlamentsv",
       "message": "Сообщение parlamentsv",
       "image": "",
       "created_at": "2024-10-24T08:47:52.801Z",
-      "update_at": "2024-10-24T08:47:52.806Z",
+      "update_at": "2024-10-25T06:49:31.619Z",
       "owner": 11
     }
   },
@@ -4367,12 +4852,24 @@
     "model": "mailing.message",
     "pk": 9,
     "fields": {
-      "title": "Рассылка2 parlamentsv",
+      "title": "Сообщение 222 parlamentsv",
       "message": "Сообщение2 parlamentsv",
       "image": "",
       "created_at": "2024-10-24T10:14:02.322Z",
-      "update_at": "2024-10-24T10:14:02.327Z",
+      "update_at": "2024-10-25T06:49:48.514Z",
       "owner": 11
+    }
+  },
+  {
+    "model": "mailing.message",
+    "pk": 10,
+    "fields": {
+      "title": "Сообщение 111 тест2",
+      "message": "снова сообщение от тест2",
+      "image": "",
+      "created_at": "2024-10-24T13:05:51.748Z",
+      "update_at": "2024-10-25T06:49:42.978Z",
+      "owner": 4
     }
   },
   {
@@ -4433,6 +4930,16 @@
       "name": "Сергей parlamentsv2",
       "comment": "",
       "owner": 11
+    }
+  },
+  {
+    "model": "mailing.client",
+    "pk": 7,
+    "fields": {
+      "email": "parlamentsv3@mail.ru",
+      "name": "Сергей parlamentsv3",
+      "comment": "фэйк",
+      "owner": 4
     }
   },
   {
@@ -4521,6 +5028,40 @@
     }
   },
   {
+    "model": "mailing.mailing",
+    "pk": 15,
+    "fields": {
+      "date_of_first_dispatch": "2024-10-25T20:07:00Z",
+      "periodicity": "W",
+      "status": "W",
+      "created_at": "2024-10-24T13:03:47.974Z",
+      "update_at": "2024-10-24T13:03:47.974Z",
+      "message_id": 3,
+      "owner": 4,
+      "is_published": true,
+      "client_list": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 16,
+    "fields": {
+      "date_of_first_dispatch": "2024-10-24T20:09:00Z",
+      "periodicity": "M",
+      "status": "W",
+      "created_at": "2024-10-24T13:06:11.418Z",
+      "update_at": "2024-10-25T10:41:44.100Z",
+      "message_id": 3,
+      "owner": 4,
+      "is_published": false,
+      "client_list": [
+        5
+      ]
+    }
+  },
+  {
     "model": "mailing.attempt",
     "pk": 198,
     "fields": {
@@ -4554,11 +5095,66 @@
     }
   },
   {
+    "model": "mailing.attempt",
+    "pk": 201,
+    "fields": {
+      "date_last_attempt": "2024-10-24T18:10:15.730Z",
+      "status": true,
+      "server_response": "1",
+      "mailing_id": 14,
+      "owner": 4
+    }
+  },
+  {
+    "model": "mailing.attempt",
+    "pk": 202,
+    "fields": {
+      "date_last_attempt": "2024-10-25T06:33:20.232Z",
+      "status": true,
+      "server_response": "1",
+      "mailing_id": 16,
+      "owner": 4
+    }
+  },
+  {
+    "model": "mailing.attempt",
+    "pk": 203,
+    "fields": {
+      "date_last_attempt": "2024-10-25T08:31:59.461Z",
+      "status": true,
+      "server_response": "1",
+      "mailing_id": 11,
+      "owner": 11
+    }
+  },
+  {
+    "model": "mailing.attempt",
+    "pk": 204,
+    "fields": {
+      "date_last_attempt": "2024-10-25T08:32:00.641Z",
+      "status": true,
+      "server_response": "1",
+      "mailing_id": 10,
+      "owner": 11
+    }
+  },
+  {
+    "model": "mailing.attempt",
+    "pk": 205,
+    "fields": {
+      "date_last_attempt": "2024-10-25T08:32:40.561Z",
+      "status": true,
+      "server_response": "1",
+      "mailing_id": 12,
+      "owner": 4
+    }
+  },
+  {
     "model": "users.user",
     "pk": 2,
     "fields": {
       "password": "pbkdf2_sha256$720000$Fm4fbfMUynaG4kDFiQijcT$XJvk2JbIcZkSE6QoNaXUgVl9YXVq8Qnt2NH0VNLDjiE=",
-      "last_login": "2024-10-24T07:35:58.021Z",
+      "last_login": "2024-10-27T06:46:00.991Z",
       "is_superuser": true,
       "first_name": "Admin",
       "last_name": "SkyPro",
@@ -4632,7 +5228,7 @@
     "pk": 3,
     "fields": {
       "password": "pbkdf2_sha256$720000$u4t5bYacAVKDqwvATr0laA$IvyN0v8y8xqIKr3L5KU1KgYwVtDns7nndYPJmsKMyD8=",
-      "last_login": "2024-10-24T08:48:59.819Z",
+      "last_login": "2024-10-25T11:07:30.140Z",
       "is_superuser": false,
       "first_name": "Сергей",
       "last_name": "Сергеев",
@@ -4655,7 +5251,7 @@
     "pk": 4,
     "fields": {
       "password": "pbkdf2_sha256$720000$MgpWtF4A4y42aC6zU6EQIi$O/atZhPPaVhYs++zglieOQ89wqd/iLJ4tL6iQOUqytI=",
-      "last_login": "2024-10-24T10:21:38.019Z",
+      "last_login": "2024-10-25T11:07:42.281Z",
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
@@ -4678,11 +5274,11 @@
     "pk": 11,
     "fields": {
       "password": "pbkdf2_sha256$720000$jg42NA42e7w0V6xbgcvL08$+u+e4lhDTk6l/2ncROKZmSeYbM0YEDz0maS7jry02JE=",
-      "last_login": "2024-10-24T08:49:33Z",
+      "last_login": "2024-10-25T14:41:03.940Z",
       "is_superuser": false,
       "first_name": "",
       "last_name": "",
-      "is_staff": false,
+      "is_staff": true,
       "date_joined": "2024-10-23T12:52:29Z",
       "email": "parlamentsv@mail.ru",
       "avatar": "",
@@ -4691,9 +5287,74 @@
       "token": "20cc495af51f66ff594a060954b61936",
       "is_active": true,
       "groups": [
-        2
+        4
       ],
       "user_permissions": []
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 1,
+    "fields": {
+      "title": "Блог 1",
+      "post": "Тут должен быть текст новой статьи 1",
+      "image": "blog/Снимок_экрана_2024-10-13_151237.jpg",
+      "views_count": 2,
+      "created_at": "2024-10-24T15:52:26.016Z",
+      "updated_at": "2024-10-25T09:38:53.891Z",
+      "is_published": true
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 2,
+    "fields": {
+      "title": "Блог 2",
+      "post": "Тут должен быть текст новой статьи 2",
+      "image": "blog/Снимок_экрана_2024-10-13_154518.jpg",
+      "views_count": 8,
+      "created_at": "2024-10-24T18:11:22.117Z",
+      "updated_at": "2024-10-25T11:07:20.475Z",
+      "is_published": true
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 3,
+    "fields": {
+      "title": "Блог 3",
+      "post": "Тут должен быть текст новой статьи 3",
+      "image": "blog/photo_5278442149278505798_y.jpg",
+      "views_count": 0,
+      "created_at": "2024-10-24T18:11:29.725Z",
+      "updated_at": "2024-10-25T09:40:09.810Z",
+      "is_published": false
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 4,
+    "fields": {
+      "title": "Блог 4",
+      "post": "Тут должен быть текст новой статьи 4",
+      "image": "blog/3.jpg",
+      "views_count": 5,
+      "created_at": "2024-10-24T18:11:37.604Z",
+      "updated_at": "2024-10-25T09:48:22.251Z",
+      "is_published": true
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 5,
+    "fields": {
+      "title": "Блог 5",
+      "post": "Тут должен быть текст новой статьи 5",
+      "image": "blog/50119_054590.jpg",
+      "views_count": 3,
+      "created_at": "2024-10-25T06:48:34.006Z",
+      "updated_at": "2024-10-25T09:48:28.792Z",
+      "is_published": true
     }
   }
 ]
