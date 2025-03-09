@@ -66,16 +66,19 @@ def do_send_mail(mailing_client_dict):
             print(f'Рассылка: {mailing.message_id.title}\n'
                   f'Сообщение: {mailing.message_id.message}\n'
                   f'Получатели: {clients}')
-            server_response = send_mail(
-                subject=mailing.message_id.title,
-                message=mailing.message_id.message,
-                from_email=EMAIL_HOST_USER,
-                recipient_list=clients,
-                fail_silently=False,
-            )
-            Attempt.objects.create(status=True, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id), owner=mailing.owner)
+
+            print("РАССЫЛКА ОТКЛЮЧЕНА!!!")
+            # server_response = send_mail(
+            #     subject=mailing.message_id.title,
+            #     message=mailing.message_id.message,
+            #     from_email=EMAIL_HOST_USER,
+            #     recipient_list=clients,
+            #     fail_silently=False,
+            # )
+            # Attempt.objects.create(status=True, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id), owner=mailing.owner)
         except smtplib.SMTPException as server_response:
-            Attempt.objects.create(status=False, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id), owner=mailing.owner)
+            print("РАССЫЛКА ОТКЛЮЧЕНА!!!")
+            # Attempt.objects.create(status=False, server_response=server_response, mailing_id=Mailing.objects.get(pk=mailing.id), owner=mailing.owner)
 
 
 def start():
